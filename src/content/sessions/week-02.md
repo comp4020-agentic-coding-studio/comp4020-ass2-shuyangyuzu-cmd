@@ -6,7 +6,7 @@ description:
 week: 2
 date: 2027-03-01
 teachers:
-  - idris-fenn
+  - desmond-okafor
 spec:
   - you have computed the mean and the median of the Office of Everything's
     week-2 ticket log and can explain why they differ

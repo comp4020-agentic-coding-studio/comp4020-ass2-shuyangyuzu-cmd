@@ -6,7 +6,7 @@ description:
 week: 8
 date: 2027-04-12
 teachers:
-  - idris-fenn
+  - desmond-okafor
 related:
   - sessions/week-08
 ---

@@ -6,7 +6,7 @@ description:
 week: 2
 date: 2027-03-01
 teachers:
-  - idris-fenn
+  - desmond-okafor
 related:
   - sessions/week-02
 ---
@@ -20,12 +20,14 @@ costs usually hide.
 
 - mean versus median: what each one is actually telling you, and why they
   diverge exactly when a queue is least well-behaved
-- the long tail: most people wait close to the average, and a small number
-  wait much longer — an average alone cannot tell you which group you'd be
-  in
-- who the average hides: it is rarely random who ends up in the long tail,
-  and "the average customer waits 4 minutes" can be true while describing
-  almost nobody's actual experience
+- the long tail, demonstrated: in this week's ten-ticket log, nine tickets
+  cluster near the average and one sits far outside it — enough to show how
+  a single long wait can coexist with a fair-sounding average, without
+  claiming every queue's tail looks like this one
+- who the average hides, in this case: the log's one long wait belongs to a
+  specific kind of request, not an arbitrary one — enough to raise the
+  question of whether that pattern generalises, which this course does not
+  assume without more evidence
 - reading a distribution honestly, without needing more than counting and
   sorting
 

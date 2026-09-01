@@ -6,7 +6,7 @@ description:
 week: 6
 date: 2027-03-29
 teachers:
-  - idris-fenn
+  - desmond-okafor
 spec:
   - you have computed each ticket's wait under all three policies on the
     same log

@@ -6,7 +6,7 @@ description:
 week: 12
 date: 2027-05-10
 teachers:
-  - idris-fenn
+  - desmond-okafor
 related:
   - sessions/week-12
 ---

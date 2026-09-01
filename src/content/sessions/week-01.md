@@ -6,7 +6,7 @@ description:
 week: 1
 date: 2027-02-22
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have picked one real, observable waiting system to follow for the
     first three weeks (a café, a pharmacy, a printer room, a help desk — your

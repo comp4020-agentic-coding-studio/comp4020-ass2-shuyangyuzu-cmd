@@ -6,7 +6,7 @@ description:
 week: 3
 date: 2027-03-08
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have recomputed the week-2 Office of Everything numbers twice, once
     with the 26-minute ticket included and once with it removed, and can

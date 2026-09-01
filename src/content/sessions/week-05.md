@@ -6,7 +6,7 @@ description:
 week: 5
 date: 2027-03-22
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have simulated, by hand, the Quick Enquiries draft policy against
     a log where short requests keep arriving

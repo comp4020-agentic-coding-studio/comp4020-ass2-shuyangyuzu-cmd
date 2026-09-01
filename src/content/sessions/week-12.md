@@ -6,7 +6,7 @@ description:
 week: 12
 date: 2027-05-10
 teachers:
-  - idris-fenn
+  - desmond-okafor
 spec:
   - you have written a specific redesign of the Office of Everything's front
     counter that states its ordering policy, its wait-communication rule,

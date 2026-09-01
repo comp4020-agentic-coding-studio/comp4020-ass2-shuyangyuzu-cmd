@@ -6,7 +6,7 @@ description:
 week: 8
 date: 2027-04-12
 teachers:
-  - idris-fenn
+  - desmond-okafor
 spec:
   - you have listed the evidence actually available to someone waiting in
     the Thursday incident, separate from what staff behind the counter knew

@@ -6,7 +6,7 @@ description:
 week: 4
 date: 2027-03-15
 teachers:
-  - idris-fenn
+  - desmond-okafor
 spec:
   - you have restated the complaint as a specific, checkable proposal for
     ordering the queue, not just a general objection

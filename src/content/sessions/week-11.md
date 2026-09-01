@@ -6,7 +6,7 @@ description:
 week: 11
 date: 2027-05-03
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have listed the separate contributing factors in the worst-day
     incident and marked which were bad luck and which were consequences of
