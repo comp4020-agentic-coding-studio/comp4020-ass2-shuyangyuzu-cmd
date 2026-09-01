@@ -24,9 +24,10 @@ const { Content } = await render(session);
 >
   <p><strong>{formatCourseDate(session.data.date)}</strong></p>
   <Content />
-  <SpecList spec={session.data.spec}>
-    What you bring to the session. Written so a reader can tell whether it has
-    been met without asking you.
+  <SpecList spec={session.data.spec} heading="Before you leave">
+    Concrete outputs this Queue Lab expects you to have by the end of it — the
+    ones the following week's lecture and lab assume you already carry
+    forward.
   </SpecList>
   <TeachingTeam teachers={session.data.teachers} />
   <RelatedContent entry={session} collections={graphCollections} />

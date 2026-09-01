@@ -68,3 +68,16 @@ premise, progression or claim goes there first, not straight into content.
   process account or fabricate commit citations, screenshots or reflections
   to make `check:evidence` pass early. Leaving that gate red until the actual
   author writes it is the correct state, not a bug to route around.
+- **Removing `STARTER_CONTENT` markers and a green `check:evidence` is not
+  proof the starter is gone.** Both check for specific, narrow conditions —
+  a marker comment absent here, a file hash different there — not that the
+  authored prose a student actually reads has been rewritten. A page can
+  clear both checks while still telling the reader how the collection is
+  named, where the frontmatter lives, or what a template author meant a slot
+  for. Before accepting a course-site replacement as finished, read every
+  public index page and every shared dynamic page shell (the `[slug].astro`
+  files that render a whole collection) start to finish, as a student would.
+  No public page may expose implementation instructions, collection names,
+  source paths, frontmatter syntax, or template guidance meant for the
+  person building the course site — that belongs in code comments and
+  `README.md`, never in what gets rendered.
