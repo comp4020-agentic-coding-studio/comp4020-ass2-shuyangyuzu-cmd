@@ -1,4 +1,5 @@
 ---
+import Callout from "astro-theme-university/components/Callout.astro";
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
@@ -12,32 +13,69 @@ import { sessionLabels, siteConfig } from "../site-config";
 
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
-  description={courseMeta.description}
+  description="Everybody waits. Not everybody waits equally. Learn who designed the queue, what it measures, and whose time it spends."
   heroImage={heroImage}
   heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
   {...siteConfig}
 >
+  <p class="course-subtitle">Twelve Weeks in the Architecture of Waiting</p>
+
   <ul class="course-tags" aria-label="Course tags">
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
+  <Callout type="info">
+    <p>
+      Waiting is not simply the absence of service. It is one of the ways a
+      system allocates service, risk, attention and priority.
+    </p>
+  </Callout>
+
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    Every week adds one artefact to the same file: the SlopU Office of
+    Everything, a single fictional counter that queues everything the
+    university's central services touch. You measure how it actually behaves,
+    choose and defend an ordering rule for it, decide what it can honestly
+    promise about how long someone will wait, and finish by redesigning it —
+    for normal demand, for congestion, and for the point where it breaks — and
+    defending that redesign under questioning.
+  </p>
+
+  <h2>Why it is worth taking</h2>
+  <p>
+    Most courses that touch queues teach the mathematics of them. This one
+    teaches the argument: a queue is not a delay that happens to a system, it
+    is a decision someone made about whose time matters more this week. Once
+    you can see that decision, you cannot stop seeing it — in call centres,
+    hospital triage, ticket support, exam scheduling, anywhere a line forms.
   </p>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    Anyone comfortable reading a small dataset without being taught what a
+    spreadsheet is. No queueing theory, statistics or systems-design
+    background is assumed — the course builds its vocabulary from one running
+    case, not a survey of the literature. It particularly suits anyone who has
+    ever been annoyed by a badly designed waiting room, call centre or online
+    queue and wanted the words to say exactly what was wrong with it.
+  </p>
+
+  <h2>By week 12</h2>
+  <p>
+    You can take an unfamiliar waiting system, name what it is actually
+    measuring, identify the policy choice behind its ordering rule, say who
+    that choice favours, and propose a specific change to it — including what
+    the change would cost someone else.
   </p>
 
   <h2>Where to go next</h2>
-  <CardGrid columns={2}>
+  <CardGrid columns={3}>
+    <Card title="Lectures" href="/lectures/">
+      <p>What is covered, week by week, and which topics each lecture draws on.</p>
+    </Card>
     <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
+      <p>The weekly exercise against the Office of Everything's own records.</p>
     </Card>
     <Card title="Assessment" href="/assessments/">
       <p>What is marked, what it is worth, and when it is due.</p>
@@ -45,10 +83,20 @@ import { sessionLabels, siteConfig } from "../site-config";
     <Card title="People" href="/people/">
       <p>Who teaches the course and how to reach them.</p>
     </Card>
+    <Card title="Policies" href="/policies/">
+      <p>Rules for late work, extensions, sources and submitted prototypes.</p>
+    </Card>
   </CardGrid>
 </ContentLayout>
 
 <style>
+  .course-subtitle {
+    margin-block: 0 1rem;
+    color: var(--at-text-secondary);
+    font-size: 1.125rem;
+    font-style: italic;
+  }
+
   .course-tags {
     display: flex;
     flex-wrap: wrap;
