@@ -6,7 +6,7 @@ description:
 week: 7
 date: 2027-04-05
 teachers:
-  - marisol-quaye
+  - renata-voss
 related:
   - sessions/week-07
 ---
@@ -17,9 +17,11 @@ is it allowed to say to the person currently waiting inside it?
 
 ## Outline
 
-- a wait-time estimate is a claim about the future, made with information
-  that is always incomplete — the honesty question is about what to do with
-  that incompleteness, not how to eliminate it
+- a wait-time estimate is a claim about the future; the Office's counter
+  knows how many tickets are currently waiting, which policy is in effect,
+  and whether the case in progress is already overrunning — and nothing
+  about arrivals still to come. The honesty question is about what to do
+  with that specific gap, not how to eliminate it
 - the Office's existing display ("estimated wait: 5 minutes", fixed,
   unchanging) as an example of a number that is easy to produce and almost
   never true

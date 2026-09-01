@@ -6,7 +6,7 @@ description: >-
 week: 7
 date: 2027-04-05
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have listed exactly what information the Office's counter could
     actually know at the moment someone takes a ticket
@@ -17,7 +17,7 @@ spec:
 ---
 
 This lab does not build an estimator. It asks what an honest sign could say
-using only the facts a real front counter already has to hand.
+using only the facts the Office's counter already has to hand.
 
 ## Before the lab
 

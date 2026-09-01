@@ -91,6 +91,6 @@ The Honest Queue is where the semester's separate threads — measurement
 (weeks 1–3), policy choice (weeks 4–6, rehearsed formally in the Policy
 Trial), and honest communication under uncertainty and failure (weeks 7–11)
 — have to work together in one specification rather than being demonstrated
-one at a time. Nothing in this brief introduces a new concept; it asks you
-to use all of the earlier ones at once, correctly, and to say so when they
-pull against each other.
+one at a time. Nothing here introduces a new concept; it asks you to use all
+of the earlier ones at once, correctly, and to say so when they pull against
+each other.

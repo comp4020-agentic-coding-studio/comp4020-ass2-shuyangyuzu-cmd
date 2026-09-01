@@ -22,9 +22,10 @@ spec:
   - the write-up computes wait times for at least one ordinary case and one
     unusually slow case, and states what changes when the slow case is
     removed
-  - no statistic, study or named law is cited to support a claim about the
-    real system; claims about it are kept to what the observation actually
-    supports
+  - no external source is used as a substitute for direct observation of the
+    real system; where a source helps interpret what you saw, it is cited,
+    and claims about the system itself are kept to what your observation
+    actually supports
 related:
   - sessions/week-01
   - sessions/week-02
@@ -67,9 +68,12 @@ This is an analysis of one system you can actually watch, not a survey of
 queueing systems in general and not a proposal for fixing anything. Do not
 collect anyone's personal information while observing — timing and counting
 people is enough; see the policies page for what "observing without
-collecting personal data" means in practice. Do not cite a study, statistic
-or named law to strengthen a claim about your real system — if you don't
-have first-hand evidence for a claim, say so and scope the claim down.
+collecting personal data" means in practice. An outside source may help you
+interpret something you observed, and if you use one, cite it — but it
+cannot prove what happened in the system you watched. A claim about your
+specific system has to come from your own observation; if you don't have
+first-hand evidence for a claim, say so and scope the claim down rather than
+borrowing authority from somewhere else.
 
 ## Relationship to other work
 

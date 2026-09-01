@@ -2,11 +2,11 @@
 title: Account for the 15% who left
 description:
   Work out what the Office's uncounted reneged tickets imply about its
-  real average wait, and check your own system for the same blind spot.
+  true average wait, and check your own system for the same blind spot.
 week: 9
 date: 2027-04-19
 teachers:
-  - marisol-quaye
+  - renata-voss
 spec:
   - you have stated, in writing, why a 4-minute average computed from
     served tickets only is not automatically the true average wait

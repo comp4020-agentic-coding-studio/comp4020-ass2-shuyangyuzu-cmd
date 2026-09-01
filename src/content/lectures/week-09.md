@@ -7,7 +7,7 @@ description:
 week: 9
 date: 2027-04-19
 teachers:
-  - marisol-quaye
+  - renata-voss
 related:
   - sessions/week-09
 ---
@@ -39,4 +39,4 @@ and what leaving them out does to everything measured before.
 > numbers issued than the service log shows served.
 
 The Queue Lab asks you to work out what that 15% gap implies about the
-Office's real average — and what it would take to measure it honestly.
+Office's true average — and what it would take to measure it honestly.
