@@ -1,17 +1,22 @@
 ---
 title: Idris Fenn
-description:
-  A tutor working across the course's first reviews and the practical work that
-  follows them.
-affiliation: Slop University School of Invented Disciplines
+description: >-
+  Tutor for SLOP2516, running the even-numbered Queue Labs and marking the
+  Policy Trial and Queue Autopsy.
+affiliation: SlopU Office of Everything, Front Counter Operations (former)
 role: tutor
 email: idris.fenn@slop.university
-contact: Ask during sessions, or email when a question cannot wait until the next one.
-photo: ./idris-fenn.avif
-photoAlt: A stylised portrait of a person facing the viewer, flat gold and black shapes on warm cream, in a two-ink risograph print
+contact: >-
+  Ask during your Queue Lab session first — most questions about a specific
+  week are faster to answer there. Email for anything that can't wait until
+  the next session.
 ---
 
-<!-- STARTER_CONTENT: replace this person entry, then remove this comment. -->
+Idris Fenn spent two years behind the Office of Everything's actual front
+counter before joining the teaching team, which is where most of the
+course's synthetic incident reports quietly come from. He teaches the
+even-numbered weeks — choosing an ordering rule, reading a stuck queue,
+auditing the Priority Lane — and marks the Queue Autopsy and Policy Trial.
 
-Replace this entry. A second person makes the listing, role ordering and
-teacher-reference fields visible before you replace the cast with your own.
+He maintains, against most evidence, that the ticket dispenser only jams on
+Thursdays.
