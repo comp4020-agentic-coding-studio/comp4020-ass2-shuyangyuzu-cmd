@@ -81,3 +81,18 @@ premise, progression or claim goes there first, not straight into content.
   source paths, frontmatter syntax, or template guidance meant for the
   person building the course site — that belongs in code comments and
   `README.md`, never in what gets rendered.
+- **Stopping a server means stopping the one process you started, by PID,
+  never a name-matched sweep.** A prior session ran `taskkill /IM node.exe
+  /F` to stop a preview server it had started and killed every Node process
+  on the machine instead, including whatever else the user had running.
+  That failure mode is specifically what this rule closes: when starting any
+  long-running server (`pnpm preview`, `pnpm dev`, or similar), record the
+  exact PID or tool-owned background-task ID it started under before doing
+  anything else with it. Before stopping it, confirm that recorded PID is
+  still the same process (re-check it belongs to this repo's server, not a
+  PID the OS has since reused for something else) and stop only that exact
+  PID or task ID — `TaskStop` on the specific task, or a PID-targeted kill,
+  never `taskkill /IM node.exe`, `pkill node`, `killall node`, or any other
+  command that matches by process name rather than by the one PID you
+  recorded. If you can't confirm which PID is yours, ask rather than
+  guessing with a broader command.
