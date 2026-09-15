@@ -1,0 +1,674 @@
+{
+  "Normal Day": {
+    "FCFS": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "ND01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "ND02",
+          "arrivalMinute": 1,
+          "start": 5,
+          "completion": 10,
+          "wait": 4,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "ND03",
+          "arrivalMinute": 2,
+          "start": 10,
+          "completion": 15,
+          "wait": 8,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "ND04",
+          "arrivalMinute": 3,
+          "start": 15,
+          "completion": 20,
+          "wait": 12,
+          "serviceOrder": 4,
+          "overtaking": 0
+        },
+        {
+          "id": "ND05",
+          "arrivalMinute": 4,
+          "start": 20,
+          "completion": 25,
+          "wait": 16,
+          "serviceOrder": 5,
+          "overtaking": 0
+        },
+        {
+          "id": "ND06",
+          "arrivalMinute": 5,
+          "start": 25,
+          "completion": 30,
+          "wait": 20,
+          "serviceOrder": 6,
+          "overtaking": 0
+        },
+        {
+          "id": "ND07",
+          "arrivalMinute": 6,
+          "start": 30,
+          "completion": 50,
+          "wait": 24,
+          "serviceOrder": 7,
+          "overtaking": 0
+        },
+        {
+          "id": "ND08",
+          "arrivalMinute": 7,
+          "start": 50,
+          "completion": 58,
+          "wait": 43,
+          "serviceOrder": 8,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 15.88,
+        "medianWaitMinutes": 14,
+        "maxWaitMinutes": 43,
+        "waitOver5Count": 6,
+        "overtakingTotal": 0,
+        "makespanMinutes": 58,
+        "idleMinutes": 0
+      }
+    },
+    "QUICK_ENQUIRIES": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "ND01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "ND02",
+          "arrivalMinute": 1,
+          "start": 5,
+          "completion": 10,
+          "wait": 4,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "ND03",
+          "arrivalMinute": 2,
+          "start": 10,
+          "completion": 15,
+          "wait": 8,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "ND04",
+          "arrivalMinute": 3,
+          "start": 15,
+          "completion": 20,
+          "wait": 12,
+          "serviceOrder": 4,
+          "overtaking": 0
+        },
+        {
+          "id": "ND05",
+          "arrivalMinute": 4,
+          "start": 20,
+          "completion": 25,
+          "wait": 16,
+          "serviceOrder": 5,
+          "overtaking": 0
+        },
+        {
+          "id": "ND06",
+          "arrivalMinute": 5,
+          "start": 25,
+          "completion": 30,
+          "wait": 20,
+          "serviceOrder": 6,
+          "overtaking": 0
+        },
+        {
+          "id": "ND07",
+          "arrivalMinute": 6,
+          "start": 38,
+          "completion": 58,
+          "wait": 32,
+          "serviceOrder": 8,
+          "overtaking": 1
+        },
+        {
+          "id": "ND08",
+          "arrivalMinute": 7,
+          "start": 30,
+          "completion": 38,
+          "wait": 23,
+          "serviceOrder": 7,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 14.38,
+        "medianWaitMinutes": 14,
+        "maxWaitMinutes": 32,
+        "waitOver5Count": 6,
+        "overtakingTotal": 1,
+        "makespanMinutes": 58,
+        "idleMinutes": 0
+      }
+    },
+    "PRIORITY_LANE": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "ND01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "ND02",
+          "arrivalMinute": 1,
+          "start": 5,
+          "completion": 10,
+          "wait": 4,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "ND03",
+          "arrivalMinute": 2,
+          "start": 18,
+          "completion": 23,
+          "wait": 16,
+          "serviceOrder": 4,
+          "overtaking": 1
+        },
+        {
+          "id": "ND04",
+          "arrivalMinute": 3,
+          "start": 23,
+          "completion": 28,
+          "wait": 20,
+          "serviceOrder": 5,
+          "overtaking": 1
+        },
+        {
+          "id": "ND05",
+          "arrivalMinute": 4,
+          "start": 28,
+          "completion": 33,
+          "wait": 24,
+          "serviceOrder": 6,
+          "overtaking": 1
+        },
+        {
+          "id": "ND06",
+          "arrivalMinute": 5,
+          "start": 33,
+          "completion": 38,
+          "wait": 28,
+          "serviceOrder": 7,
+          "overtaking": 1
+        },
+        {
+          "id": "ND07",
+          "arrivalMinute": 6,
+          "start": 38,
+          "completion": 58,
+          "wait": 32,
+          "serviceOrder": 8,
+          "overtaking": 1
+        },
+        {
+          "id": "ND08",
+          "arrivalMinute": 7,
+          "start": 10,
+          "completion": 18,
+          "wait": 3,
+          "serviceOrder": 3,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 15.88,
+        "medianWaitMinutes": 18,
+        "maxWaitMinutes": 32,
+        "waitOver5Count": 5,
+        "overtakingTotal": 5,
+        "makespanMinutes": 58,
+        "idleMinutes": 0
+      }
+    }
+  },
+  "High-declaration Day": {
+    "FCFS": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "HD01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "HD02",
+          "arrivalMinute": 1,
+          "start": 5,
+          "completion": 10,
+          "wait": 4,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "HD03",
+          "arrivalMinute": 2,
+          "start": 10,
+          "completion": 18,
+          "wait": 8,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "HD04",
+          "arrivalMinute": 3,
+          "start": 18,
+          "completion": 38,
+          "wait": 15,
+          "serviceOrder": 4,
+          "overtaking": 0
+        },
+        {
+          "id": "HD05",
+          "arrivalMinute": 4,
+          "start": 38,
+          "completion": 43,
+          "wait": 34,
+          "serviceOrder": 5,
+          "overtaking": 0
+        },
+        {
+          "id": "HD06",
+          "arrivalMinute": 5,
+          "start": 43,
+          "completion": 46,
+          "wait": 38,
+          "serviceOrder": 6,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 16.5,
+        "medianWaitMinutes": 11.5,
+        "maxWaitMinutes": 38,
+        "waitOver5Count": 4,
+        "overtakingTotal": 0,
+        "makespanMinutes": 46,
+        "idleMinutes": 0
+      }
+    },
+    "QUICK_ENQUIRIES": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "HD01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "HD02",
+          "arrivalMinute": 1,
+          "start": 8,
+          "completion": 13,
+          "wait": 7,
+          "serviceOrder": 3,
+          "overtaking": 1
+        },
+        {
+          "id": "HD03",
+          "arrivalMinute": 2,
+          "start": 18,
+          "completion": 26,
+          "wait": 16,
+          "serviceOrder": 5,
+          "overtaking": 2
+        },
+        {
+          "id": "HD04",
+          "arrivalMinute": 3,
+          "start": 26,
+          "completion": 46,
+          "wait": 23,
+          "serviceOrder": 6,
+          "overtaking": 2
+        },
+        {
+          "id": "HD05",
+          "arrivalMinute": 4,
+          "start": 13,
+          "completion": 18,
+          "wait": 9,
+          "serviceOrder": 4,
+          "overtaking": 1
+        },
+        {
+          "id": "HD06",
+          "arrivalMinute": 5,
+          "start": 5,
+          "completion": 8,
+          "wait": 0,
+          "serviceOrder": 2,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 9.17,
+        "medianWaitMinutes": 8,
+        "maxWaitMinutes": 23,
+        "waitOver5Count": 4,
+        "overtakingTotal": 6,
+        "makespanMinutes": 46,
+        "idleMinutes": 0
+      }
+    },
+    "PRIORITY_LANE": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "HD01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 5,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "HD02",
+          "arrivalMinute": 1,
+          "start": 8,
+          "completion": 13,
+          "wait": 7,
+          "serviceOrder": 3,
+          "overtaking": 1
+        },
+        {
+          "id": "HD03",
+          "arrivalMinute": 2,
+          "start": 13,
+          "completion": 21,
+          "wait": 11,
+          "serviceOrder": 4,
+          "overtaking": 1
+        },
+        {
+          "id": "HD04",
+          "arrivalMinute": 3,
+          "start": 26,
+          "completion": 46,
+          "wait": 23,
+          "serviceOrder": 6,
+          "overtaking": 2
+        },
+        {
+          "id": "HD05",
+          "arrivalMinute": 4,
+          "start": 21,
+          "completion": 26,
+          "wait": 17,
+          "serviceOrder": 5,
+          "overtaking": 1
+        },
+        {
+          "id": "HD06",
+          "arrivalMinute": 5,
+          "start": 5,
+          "completion": 8,
+          "wait": 0,
+          "serviceOrder": 2,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 9.67,
+        "medianWaitMinutes": 9,
+        "maxWaitMinutes": 23,
+        "waitOver5Count": 4,
+        "overtakingTotal": 5,
+        "makespanMinutes": 46,
+        "idleMinutes": 0
+      }
+    }
+  },
+  "System Shock": {
+    "FCFS": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "SS01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 4,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "SS02",
+          "arrivalMinute": 1,
+          "start": 4,
+          "completion": 7,
+          "wait": 3,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "SS03",
+          "arrivalMinute": 2,
+          "start": 10,
+          "completion": 13,
+          "wait": 8,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "SS04",
+          "arrivalMinute": 5,
+          "start": 13,
+          "completion": 19,
+          "wait": 8,
+          "serviceOrder": 4,
+          "overtaking": 0
+        },
+        {
+          "id": "SS05",
+          "arrivalMinute": 6,
+          "start": 19,
+          "completion": 21,
+          "wait": 13,
+          "serviceOrder": 5,
+          "overtaking": 0
+        },
+        {
+          "id": "SS06",
+          "arrivalMinute": 9,
+          "start": 21,
+          "completion": 23,
+          "wait": 12,
+          "serviceOrder": 6,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 7.33,
+        "medianWaitMinutes": 8,
+        "maxWaitMinutes": 13,
+        "waitOver5Count": 4,
+        "overtakingTotal": 0,
+        "makespanMinutes": 23,
+        "idleMinutes": 3
+      }
+    },
+    "QUICK_ENQUIRIES": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "SS01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 4,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "SS02",
+          "arrivalMinute": 1,
+          "start": 4,
+          "completion": 7,
+          "wait": 3,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "SS03",
+          "arrivalMinute": 2,
+          "start": 14,
+          "completion": 17,
+          "wait": 12,
+          "serviceOrder": 5,
+          "overtaking": 2
+        },
+        {
+          "id": "SS04",
+          "arrivalMinute": 5,
+          "start": 17,
+          "completion": 23,
+          "wait": 12,
+          "serviceOrder": 6,
+          "overtaking": 2
+        },
+        {
+          "id": "SS05",
+          "arrivalMinute": 6,
+          "start": 10,
+          "completion": 12,
+          "wait": 4,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "SS06",
+          "arrivalMinute": 9,
+          "start": 12,
+          "completion": 14,
+          "wait": 3,
+          "serviceOrder": 4,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 5.67,
+        "medianWaitMinutes": 3.5,
+        "maxWaitMinutes": 12,
+        "waitOver5Count": 2,
+        "overtakingTotal": 4,
+        "makespanMinutes": 23,
+        "idleMinutes": 3
+      }
+    },
+    "PRIORITY_LANE": {
+      "agree": true,
+      "perTicket": [
+        {
+          "id": "SS01",
+          "arrivalMinute": 0,
+          "start": 0,
+          "completion": 4,
+          "wait": 0,
+          "serviceOrder": 1,
+          "overtaking": 0
+        },
+        {
+          "id": "SS02",
+          "arrivalMinute": 1,
+          "start": 4,
+          "completion": 7,
+          "wait": 3,
+          "serviceOrder": 2,
+          "overtaking": 0
+        },
+        {
+          "id": "SS03",
+          "arrivalMinute": 2,
+          "start": 12,
+          "completion": 15,
+          "wait": 10,
+          "serviceOrder": 4,
+          "overtaking": 1
+        },
+        {
+          "id": "SS04",
+          "arrivalMinute": 5,
+          "start": 17,
+          "completion": 23,
+          "wait": 12,
+          "serviceOrder": 6,
+          "overtaking": 2
+        },
+        {
+          "id": "SS05",
+          "arrivalMinute": 6,
+          "start": 10,
+          "completion": 12,
+          "wait": 4,
+          "serviceOrder": 3,
+          "overtaking": 0
+        },
+        {
+          "id": "SS06",
+          "arrivalMinute": 9,
+          "start": 15,
+          "completion": 17,
+          "wait": 6,
+          "serviceOrder": 5,
+          "overtaking": 0
+        }
+      ],
+      "aggregate": {
+        "meanWaitMinutes": 5.83,
+        "medianWaitMinutes": 5,
+        "maxWaitMinutes": 12,
+        "waitOver5Count": 3,
+        "overtakingTotal": 3,
+        "makespanMinutes": 23,
+        "idleMinutes": 3
+      }
+    }
+  }
+}

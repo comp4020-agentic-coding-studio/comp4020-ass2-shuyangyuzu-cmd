@@ -92,10 +92,19 @@ jokes layered on top of it.
 
 ## Scope exclusions
 
-This MVP does not implement the Queue Policy Lab simulator described in the
-weeks 4–9 activities; those weeks describe the exercise and its declared
-inputs without a working tool behind them, and make no interactive promise
-the site can't currently keep. The site does not claim completed academic
+This MVP has approved building an interactive Queue Policy Lab on the
+site, running the three policies (FCFS, Quick Enquiries, Priority Lane)
+against the three fixed scenarios (Normal Day, High-declaration Day,
+System Shock) specified, with computed and cross-checked results, in
+`POLICY-LAB-CONTRACT.md` — but that simulator is not yet implemented. The
+weeks 4–9 activities still describe the exercise and its declared inputs
+without a page a visitor can run today, and make no interactive promise
+the site can't currently keep; the contract's fixed datasets and results
+are checked-in reference material for whoever builds that page next.
+Stretch beyond the approved three policies and three scenarios —
+randomised arrivals, additional policies, or letting a visitor define
+their own tickets — stays excluded from this pass. The site does not claim
+completed academic
 research, does not cite sources it hasn't verified, and does not present the
 Office of Everything as anything other than fiction. Twelve weeks is the
 whole curriculum for this pass — no thirteenth "extension" week, no optional
