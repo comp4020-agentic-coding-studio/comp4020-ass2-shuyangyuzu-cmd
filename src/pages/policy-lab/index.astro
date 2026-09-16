@@ -429,7 +429,6 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
       compareDetails &&
       compareBody
     ) {
-      const compareSummary = compareDetails.querySelector("summary");
       const allResults = JSON.parse(dataEl.textContent ?? "{}");
       const POLICY_LABELS: Record<string, string> = {
         FCFS: "FCFS",
@@ -489,6 +488,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
           ticketBody.append(row);
         }
 
+        const compareSummary = compareDetails.querySelector("summary");
         if (compareSummary) {
           compareSummary.textContent = `Compare all policies for ${scenario}`;
         }
@@ -520,6 +520,14 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
           statusEl.textContent = "Reset to Normal Day, FCFS.";
         }, 0);
       });
+
+      // A reloaded or bfcache-restored page can leave a radio checked to a
+      // non-default value while the server-rendered markup still shows the
+      // default (Normal Day, FCFS) figures. Sync once on load so the visible
+      // result always matches whichever inputs are actually checked, instead
+      // of waiting for a future change event that may never fire if nothing
+      // changes.
+      render(false);
     }
   </script>
 
