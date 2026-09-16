@@ -77,24 +77,11 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
   description="Run the three week-6 policies against three fixed scenarios and see the individual tickets a mean wait figure hides."
   {...siteConfig}
 >
-  <p>
-    Waiting is not just absence of service — it allocates attention, risk and
-    priority, and the ordering policy decides who gets which. Week 6 asked
-    you to compute three policies by hand against one log. This lab runs the
-    same three policies — <a href={withBase("/sessions/week-06/")}>FCFS, Quick Enquiries and the Priority Lane</a> —
-    against three fixed scenarios built for this contract, so you can see the
-    per-ticket variance a summary statistic hides, not just the summary
-    itself.
-  </p>
-
   <section aria-labelledby="policy-lab-live-heading">
     <h2 id="policy-lab-live-heading">Try it</h2>
     <p>
-      Choose a scenario and a policy below. The numbers update from the
-      site's own verified simulator — the same one checked against
-      <a href={withBase("/sessions/week-11/")}>week 11</a>'s worst-day case and
-      cross-checked by two independent reference implementations before this
-      page existed.
+      Pick a scenario and a policy — the numbers come straight from the
+      site's own verified simulator.
     </p>
 
     <form id="policy-lab-form" class="policy-lab-controls">
@@ -133,6 +120,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
 
     <h3 id="policy-lab-selection-heading">{DEFAULT_SCENARIO} — {POLICY_LABELS[DEFAULT_POLICY]}</h3>
 
+    <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
     <div class="at-table-wrap">
       <table id="policy-lab-summary-table">
         <thead>
@@ -159,6 +147,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
     <details id="policy-lab-compare" class="at-callout at-callout--details">
       <summary>Compare all policies for {DEFAULT_SCENARIO}</summary>
       <p>No ranking is implied — these are the same five figures, side by side, for one scenario.</p>
+      <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
       <div class="at-table-wrap">
         <table>
           <thead>
@@ -194,6 +183,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
 
     <p>Service order and per-ticket detail for the selected policy — the individual variance behind the averages above:</p>
 
+    <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
     <div class="at-table-wrap">
       <table id="policy-lab-ticket-table">
         <thead>
@@ -228,6 +218,18 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
         </tbody>
       </table>
     </div>
+
+    <details class="at-callout at-callout--details">
+      <summary>Why this lab?</summary>
+      <p>
+        Waiting is not just absence of service — it allocates attention, risk
+        and priority, and the ordering policy decides who gets which. Week 6
+        asked you to compute three policies by hand against one log; this lab
+        runs the same three policies — <a href={withBase("/sessions/week-06/")}>FCFS, Quick Enquiries and the Priority Lane</a> —
+        against three fixed scenarios, so you can see the per-ticket variance
+        a summary statistic hides, not just the summary itself.
+      </p>
+    </details>
   </section>
 
   <Callout type="info">
@@ -319,6 +321,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
                 </span>
               )}
             </h3>
+            <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
             <div class="at-table-wrap">
               <table>
                 <caption>Compare all policies — {scenarioName}</caption>
@@ -362,6 +365,7 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
                     {scenarioName} — {POLICY_LABELS[policy]}: per-ticket detail
                   </summary>
                   <p>{POLICY_DESCRIPTIONS[policy]}</p>
+                  <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
                   <div class="at-table-wrap">
                     <table>
                       <thead>
@@ -562,9 +566,16 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
       margin-block-end: var(--at-spacing-xl);
     }
 
+    .policy-lab-scroll-hint {
+      font-size: var(--at-font-size-sm);
+      color: var(--at-text-muted);
+      margin-block-end: var(--at-spacing-xs);
+    }
+
     @media (max-width: 480px) {
-      .policy-lab-controls {
-        flex-direction: column;
+      .policy-lab-controls fieldset {
+        flex: 1 1 140px;
+        min-width: 140px;
       }
     }
 
