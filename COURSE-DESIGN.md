@@ -162,3 +162,18 @@ policies page carry real, specific content; the starter imagery and
 boilerplate are gone; and `pnpm check` passes. `pnpm check:evidence` is
 expected to still fail on `PROCESS.md`, which this pass deliberately leaves
 for its actual author to write.
+
+## Homepage revision: the Service Hall
+
+The homepage is an entrance to the Office of Everything: a two-column course
+introduction and an original typographic service receipt, followed by a real
+Normal Day comparison, four numbered teaching windows and three assessment
+outcomes. The receipt is explicitly fictional course artwork, never a live
+queue. FCFS and Quick Enquiries figures come from the existing site simulator
+at build time, not a second algorithm or the verification-only reference file.
+The comparison illustrates a trade-off on fixed synthetic tickets, not a winner.
+
+The four windows use the full content width, with four/two/one columns across
+wide/medium/mobile screens. They must not inherit the prose list width cap or
+split stage titles inside words. Styles are scoped to the homepage; SlopU
+identity, tokens, collections, generated API and existing course links remain.

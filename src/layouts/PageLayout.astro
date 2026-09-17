@@ -1,11 +1,12 @@
 ---
 import MdxPageLayout from "astro-theme-university/layouts/MdxPageLayout.astro";
+import BaseLayout from "astro-theme-university/layouts/BaseLayout.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import { siteConfig } from "../site-config";
 
 // Both authored Astro pages and Markdown share the same visual treatment.
 const isMarkdown = Boolean(Astro.props.frontmatter);
-const Layout = isMarkdown ? MdxPageLayout : ContentLayout;
+const Layout = Astro.props.landing ? BaseLayout : isMarkdown ? MdxPageLayout : ContentLayout;
 const pageHeading = Boolean(Astro.props.frontmatter?.pageHeading);
 ---
 
@@ -148,5 +149,76 @@ const pageHeading = Boolean(Astro.props.frontmatter?.pageHeading);
     .office-intro, .office-reading-grid { display: block; }
     .office-actions { display: none; }
     .office-ticket, .policy-result { break-inside: avoid; }
+  }
+
+  /* The Service Hall is homepage-only; course detail pages retain their layout. */
+  .service-hall { width: 100%; min-width: 0; }
+  .service-hall :is(h1,h2,h3,p,figure,blockquote,dl,dd) { margin: 0; }
+  .service-hall :is(h1,h2,h3) { color: var(--at-text); }
+  .service-hall .hall-label { font-family: var(--at-font-mono); text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; line-height: 1.6; color: var(--at-text-secondary); }
+  .hall-entrance { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); align-items: center; gap: clamp(2rem,5vw,5rem); padding-block: 1rem 4rem; }
+  .service-hall h1 { font-size: clamp(2.4rem,4.2vw,4.6rem); line-height: 1.02; letter-spacing: -.055em; font-weight: 720; max-width: 14ch; margin-block: 1rem; text-wrap: balance; }
+  .service-hall .hall-subtitle { font-size: .88rem; color: var(--at-text-secondary); margin-bottom: 1.5rem; }
+  .service-hall .hall-claim { font-size: clamp(1.3rem,2vw,1.7rem); line-height: 1.3; font-weight: 600; margin-bottom: .9rem; }
+  .service-hall .hall-summary { max-width: 48ch; font-size: 1rem; }
+  .hall-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-block: 1.5rem 1rem; }
+  .hall-text-link { font-weight: 600; text-decoration: underline; text-underline-offset: .25em; }
+  .service-hall .hall-dates { font-family: var(--at-font-mono); font-size: .72rem; color: var(--at-text-secondary); }
+  .hall-receipt { position: relative; border: 1px solid var(--at-border); border-top: .6rem solid var(--at-primary); padding: 1.6rem; background: var(--at-bg-alt); box-shadow: .65rem .65rem 0 var(--at-accent-soft); transform: rotate(2deg); }
+  .receipt-top,.receipt-footer { display: flex; justify-content: space-between; gap: 1rem; font-family: var(--at-font-mono); font-size: .65rem; text-transform: uppercase; }
+  .receipt-top { padding-bottom: 1.5rem; border-bottom: 1px solid var(--at-border); }
+  .service-hall .receipt-office { font-size: clamp(1.8rem,3vw,3rem); line-height: 1.03; font-weight: 700; letter-spacing: -.04em; margin-block: 1.5rem; }
+  .service-hall .receipt-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .07em; }
+  .service-hall .receipt-code { font-family: var(--at-font-mono); font-size: clamp(1.8rem,3.3vw,3.4rem); font-weight: 700; line-height: 1.3; margin-block: .4rem; }
+  .service-hall .receipt-counts { font-size: .72rem; text-transform: uppercase; }
+  .receipt-rule { border-top: 1px dashed var(--at-border); margin-block: 1.5rem; }
+  .service-hall .hall-receipt blockquote { padding: 0; border: 0; font-size: 1.05rem; font-style: normal; color: var(--at-text); background: none; }
+  .receipt-footer { border-top: 1px solid var(--at-border); padding-top: 1rem; margin-top: 1.5rem; }
+  .hall-receipt figcaption { font-size: .65rem; margin-top: .75rem; color: var(--at-text-secondary); }
+  .service-hall > :is(section:not(.hall-entrance),.hall-reading,.hall-exit) { border-top: 1px solid var(--at-border); padding-block: 3rem; }
+  .hall-section-heading { margin-bottom: 1.25rem; }
+  .service-hall h2 { font-size: clamp(1.65rem,3vw,2.6rem); line-height: 1.12; letter-spacing: -.035em; margin-top: .65rem; }
+  .service-hall section > p { max-width: 72ch; }
+  .hall-policy-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-block: 1.5rem 1rem; }
+  .hall-policy { border: 1px solid var(--at-border); border-top: 4px solid var(--at-primary); padding: 1.5rem; }
+  .service-hall .hall-policy h3 { font-size: 1.3rem; margin-block: .35rem 1.2rem; }
+  .hall-policy dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+  .hall-policy dt { font-size: .75rem; color: var(--at-text-secondary); }
+  .hall-policy dd { font-size: 2rem; font-family: var(--at-font-mono); font-variant-numeric: tabular-nums; line-height: 1.4; }
+  .hall-policy dd small { font-size: .75rem; }
+  .service-hall .hall-footnote { font-size: .8rem; color: var(--at-text-secondary); }
+  .service-hall .hall-question { font-size: 1.2rem; font-weight: 550; margin-block: 1.5rem .75rem; }
+  .hall-windows { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); width: 100%; max-width: none; padding: 0; list-style: none; gap: 1rem; margin: 1.75rem 0 1rem; }
+  .hall-windows li { min-width: 0; border-top: 4px solid var(--at-primary); border-bottom: 1px solid var(--at-border); padding: 1rem 0 1.5rem; margin: 0; }
+  .hall-window-number { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; }
+  .hall-window-number > span { font-family: var(--at-font-mono); font-size: 2.3rem; line-height: 1; color: var(--at-primary); }
+  .service-hall .hall-windows h3 { font-size: 1.22rem; line-height: 1.3; overflow-wrap: normal; word-break: normal; hyphens: none; margin-bottom: 1rem; }
+  .hall-windows p:not(.hall-label) { font-size: .9rem; }
+  .service-hall .hall-window-question { font-weight: 600; margin-bottom: .6rem; }
+  .service-hall .hall-assessment-weight { font-family: var(--at-font-mono); font-size: 1.65rem; margin-bottom: .8rem; }
+  .hall-assessment-weight span { font-size: .8rem; }
+  .hall-reading { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 3rem; }
+  .service-hall .hall-reading h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+  .service-hall .hall-reading p + p { margin-top: 1rem; }
+  .hall-reading .hall-text-link { display: inline-block; margin-top: 1rem; }
+  .hall-exit .at-button { margin-block: 1rem; }
+  .hall-exit > p:last-child { font-size: .85rem; }
+  @media (max-width: 1100px) {
+    .hall-windows { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width: 699px) {
+    .hall-entrance,.hall-policy-pair,.hall-reading { grid-template-columns: 1fr; gap: 1.75rem; }
+    .hall-entrance { padding-block: 0 2.5rem; }
+    .service-hall h1 { font-size: 2.4rem; max-width: 16ch; }
+    .hall-receipt { transform: none; padding: 1.15rem; box-shadow: .3rem .3rem 0 var(--at-accent-soft); }
+    .receipt-top { padding-bottom: .7rem; }
+    .service-hall .receipt-office { margin-block: 1rem; }
+    .hall-windows { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hall-window-number { margin-bottom: .75rem; }
+    .service-hall .hall-windows h3 { font-size: 1.45rem; }
+    .service-hall > :is(section:not(.hall-entrance),.hall-reading,.hall-exit) { padding-block: 2rem; }
+    .hall-policy { padding: 1rem; }
+    .hall-policy dl { gap: .5rem; }
+    .hall-policy dd { font-size: 1.65rem; }
   }
 </style>

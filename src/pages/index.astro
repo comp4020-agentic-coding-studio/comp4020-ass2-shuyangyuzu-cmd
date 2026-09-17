@@ -1,107 +1,106 @@
 ---
+import { getCollection } from "astro:content";
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
-import ContentLayout from "../layouts/PageLayout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 import { withBase } from "astro-theme-university/url";
-import heroImage from "../assets/images/hero-home.svg";
 import { courseMeta } from "../course-config";
 import { siteConfig } from "../site-config";
+import { SCENARIOS, simulate } from "../lib/policy-lab/simulate";
 
+const normalDay = SCENARIOS["Normal Day"];
+const comparison = [
+  { label: "First come, first served", rule: "Arrival order", result: simulate(normalDay.tickets, normalDay.closedWindow, "FCFS") },
+  { label: "Quick Enquiries", rule: "Shortest eligible service first", result: simulate(normalDay.tickets, normalDay.closedWindow, "QUICK_ENQUIRIES") },
+];
+const fmt = (value: number) => Number(value.toFixed(2)).toString();
+const dateLabel = (value: string) => new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(value));
 const stages = [
   { weeks: "01–03", title: "Measure", question: "What does an average hide?", outcome: "Observe a queue. Account for the people behind the numbers.", href: "/lectures/week-01/" },
   { weeks: "04–06", title: "Choose", question: "Who gets to go next?", outcome: "Compare three rules. Name who gains and who waits longer.", href: "/lectures/week-04/" },
   { weeks: "07–09", title: "Communicate", question: "What can you honestly promise?", outcome: "Write the wait sign. Notice the people who leave.", href: "/lectures/week-07/" },
   { weeks: "10–12", title: "Defend", question: "Can your rule survive its worst day?", outcome: "Audit the priority lane. Redesign the counter and defend the cost.", href: "/lectures/week-10/" },
 ];
+const outcomes: Record<string, string> = {
+  "Queue Autopsy": "Observe one real waiting system. Separate what you saw from what you assumed.",
+  "Policy Trial": "Compare two rules on the same declared data. Defend who goes next and who waits longer.",
+  "The Honest Queue": "Redesign the Office of Everything. Explain its promises, its failures and the cost of your choices.",
+};
+const assessments = (await getCollection("assessments", ({ data }) => data.published !== false)).sort((a, b) => a.data.week - b.data.week);
 ---
+<PageLayout landing title={courseMeta.title} description={courseMeta.description} {...siteConfig}>
+  <div class="service-hall">
+    <section class="hall-entrance" aria-labelledby="hall-title">
+      <div class="hall-introduction">
+        <p class="hall-label">{courseMeta.code} / {courseMeta.session} {courseMeta.year}</p>
+        <h1 id="hall-title">{courseMeta.title}</h1>
+        <p class="hall-subtitle">Twelve Weeks in the Architecture of Waiting</p>
+        <p class="hall-claim">Everybody waits.<br />Not everybody waits equally.</p>
+        <p class="hall-summary">One fictional university service desk. Twelve weeks to uncover who its rules favour, whose time they spend, and what you would change.</p>
+        <div class="hall-actions">
+          <a class="at-button" href={withBase("/policy-lab/")}>Enter the Policy Lab <span aria-hidden="true">↗</span></a>
+          <a class="hall-text-link" href={withBase("/lectures/")}>Explore the twelve weeks <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="hall-dates"><time datetime={courseMeta.startDate}>{dateLabel(courseMeta.startDate)}</time> – <time datetime={courseMeta.endDate}>{dateLabel(courseMeta.endDate)}</time></p>
+      </div>
+      <figure class="hall-receipt" aria-label="Fictional course service receipt">
+        <div class="receipt-top"><span>SlopU / Student services</span><span aria-hidden="true">↘</span></div>
+        <p class="receipt-office">Office of<br />Everything</p>
+        <p class="receipt-label">Course admission / retain for reference</p>
+        <p class="receipt-code">{courseMeta.code}</p>
+        <p class="receipt-counts">12 weeks / 3 policies / 1 service desk</p>
+        <div class="receipt-rule" aria-hidden="true"></div>
+        <blockquote>Please retain your ticket.<br />You may need it as evidence.</blockquote>
+        <div class="receipt-footer"><span>Purpose: a defensible redesign</span><span aria-hidden="true">||| || ||| | ||||</span></div>
+        <figcaption>Course illustration. Not a live queue.</figcaption>
+      </figure>
+    </section>
 
-<ContentLayout
-  title={courseMeta.title}
-  description="Everybody waits. Not everybody waits equally."
-  heroImage={heroImage}
-  heroImageAlt="Gold queue lines enter a single counter on a black field, beside the outline of a perforated ticket."
-  {...siteConfig}
->
-  <div class="office-register" aria-label="Course information">
-    <span>{courseMeta.code} / Office of Everything</span>
-    <span>{courseMeta.session} / {courseMeta.year}</span>
-    <span>12 teaching weeks</span>
-  </div>
-  <p class="course-subtitle">Twelve Weeks in the Architecture of Waiting</p>
-  <div class="office-actions">
-    <a class="at-button" href={withBase("/lectures/week-01/")}>Begin with Week 01 <span aria-hidden="true">↗</span></a>
-    <a class="at-button at-button--outline" href={withBase("/policy-lab/")}>Try the Policy Lab <span aria-hidden="true">→</span></a>
-  </div>
+    <section class="hall-comparison" aria-labelledby="comparison-title">
+      <header class="hall-section-heading"><p class="hall-label">Exhibit 01 / Normal Day</p><h2 id="comparison-title">Same arrivals. Different rules.<br />Different waits.</h2></header>
+      <p>Eight tickets, one counter, two ways to decide who goes next. Synthetic teaching scenario; every ticket is eventually served.</p>
+      <div class="hall-policy-pair">
+        {comparison.map(({ label, rule, result }) => <section class="hall-policy" aria-label={label}>
+          <p class="hall-label">{rule}</p><h3>{label}</h3>
+          <dl>
+            <div><dt>Mean wait</dt><dd>{fmt(result.summary.meanWait)} <small>min</small></dd></div>
+            <div><dt>Longest wait</dt><dd>{fmt(result.summary.maxWait)} <small>min</small></dd></div>
+            <div><dt>Overtaking events</dt><dd>{result.summary.overtakingTotal}</dd></div>
+          </dl>
+        </section>)}
+      </div>
+      <p class="hall-footnote">Overtaking counts each pair in which a later arrival starts service before an earlier arrival. These results describe this fixed scenario, not every queue.</p>
+      <p class="hall-question">Which outcome would you defend—and whose wait would you have to explain?</p>
+      <a class="hall-text-link" href={withBase("/policy-lab/")}>Inspect every ticket in the Policy Lab <span aria-hidden="true">→</span></a>
+    </section>
 
-  <section class="office-intro" aria-labelledby="course-premise">
-    <div>
-      <p class="office-label">The institution has a policy for your time.</p>
-      <h2 id="course-premise">A queue is a decision.<br />Someone pays for it.</h2>
-      <p>Waiting is one of the ways a system allocates service, risk, attention and
-        priority. Learn who designed the queue, what it measures, and whose time
-        it spends.</p>
-      <p>Our case is the SlopU Office of Everything: one fictional counter for
-        enrolment changes, printer-credit disputes and everything in between.
-        Each week adds a memo, a ticket log, a complaint or a failure to the same
-        file. By the end, you have to redesign the office — and answer for it.</p>
+    <section class="hall-curriculum" aria-labelledby="windows-title">
+      <header class="hall-section-heading"><p class="hall-label">Your route through the office</p><h2 id="windows-title">Twelve weeks.<br />Four service windows.</h2></header>
+      <p>The Office handles enrolment changes, printer-credit disputes and everything in between. Each week adds a memo, ticket log, complaint or failure to the same fictional case.</p>
+      <ol class="hall-windows">
+        {stages.map((stage, index) => <li>
+          <div class="hall-window-number"><span aria-hidden="true">0{index + 1}</span><p class="hall-label">Window 0{index + 1}<br />Weeks {stage.weeks}</p></div>
+          <h3><a href={withBase(stage.href)}>{stage.title}</a></h3>
+          <p class="hall-window-question">{stage.question}</p><p>{stage.outcome}</p>
+        </li>)}
+      </ol>
+      <p class="hall-footnote">Read the <a href={withBase("/lectures/")}>lectures</a>, then bring your decision to the <a href={withBase("/sessions/")}>weekly Queue Lab</a>.</p>
+    </section>
+
+    <section class="hall-assessments" aria-labelledby="outcomes-title">
+      <header class="hall-section-heading"><p class="hall-label">Three submissions / one accumulating argument</p><h2 id="outcomes-title">Leave with more than a complaint.</h2></header>
+      <CardGrid columns={3}>
+        {assessments.map((assessment) => <Card title={assessment.data.title} href={`/assessments/${assessment.id}/`}>
+          <p class="hall-assessment-weight">{assessment.data.weight}% <span> / Week {assessment.data.week}</span></p>
+          <p>{outcomes[assessment.data.title] ?? assessment.data.description}</p>
+        </Card>)}
+      </CardGrid>
+    </section>
+
+    <div class="hall-reading">
+      <section aria-labelledby="entry-title"><p class="hall-label">Before you take a ticket</p><h2 id="entry-title">Bring a question about a queue.</h2><p>You should be comfortable reading a small dataset. No queueing theory, statistics or systems-design background is assumed.</p><p>If you have ever wanted to explain exactly what is wrong with a waiting room, call centre or online queue, start here.</p></section>
+      <section aria-labelledby="exit-title"><p class="hall-label">When your number is called</p><h2 id="exit-title">Make a change you can defend.</h2><p>By week 12, you can name what a waiting system measures, identify its ordering rule, explain who it favours, and propose a specific change—including what that change costs someone else.</p><a class="hall-text-link" href={withBase("/assessments/the-honest-queue/")}>Read The Honest Queue brief <span aria-hidden="true">→</span></a></section>
     </div>
-    <aside class="office-ticket" aria-label="Course case file">
-      <p class="office-label">Office of Everything / Case file</p>
-      <dl>
-        <div><dt>Reference</dt><dd>{courseMeta.code}</dd></div>
-        <div><dt>Subject</dt><dd>The allocation of waiting</dd></div>
-        <div><dt>Teaching period</dt><dd><time datetime={courseMeta.startDate}>22 Feb</time> – <time datetime={courseMeta.endDate}>28 May {courseMeta.year}</time></dd></div>
-        <div><dt>Final outcome</dt><dd>A defensible redesign</dd></div>
-      </dl>
-      <p>Synthetic case material. The office is fictional. The decisions are yours.</p>
-    </aside>
-  </section>
-
-  <h2>Twelve weeks. Four decisions.</h2>
-  <ol class="office-stages">
-    {stages.map((stage) => (
-      <li>
-        <p class="office-label">Weeks {stage.weeks}</p>
-        <h3><a href={withBase(stage.href)}>{stage.title}</a></h3>
-        <p><strong>{stage.question}</strong></p>
-        <p>{stage.outcome}</p>
-      </li>
-    ))}
-  </ol>
-
-  <section class="office-lab-invite" aria-labelledby="lab-invitation">
-    <p class="office-label">The policy desk / Interactive exercise</p>
-    <h2 id="lab-invitation">Same arrivals. Different rules. Different waits.</h2>
-    <p>First come, first served. Quick enquiries. A priority lane. Apply each
-      rule to the same tickets, then look past the average to see who paid
-      for the improvement.</p>
-    <a class="at-button" href={withBase("/policy-lab/")}>Open the Policy Lab <span aria-hidden="true">→</span></a>
-  </section>
-
-  <div class="office-reading-grid">
-    <section aria-labelledby="course-audience">
-      <p class="office-label">Entry requirements</p>
-      <h2 id="course-audience">Bring a question about a queue.</h2>
-      <p>You should be comfortable reading a small dataset. No queueing theory,
-        statistics or systems-design background is assumed. If you have ever
-        wanted to explain exactly what is wrong with a waiting room, call centre
-        or online queue, this is a place to start.</p>
-    </section>
-    <section aria-labelledby="course-outcome">
-      <p class="office-label">On leaving the office</p>
-      <h2 id="course-outcome">Make a change you can defend.</h2>
-      <p>By week 12, you can name what a waiting system measures, identify the
-        rule behind its ordering, explain who it favours, and propose a specific
-        change — including what that change would cost someone else.</p>
-    </section>
+    <footer class="hall-exit"><p class="hall-label">The counter is open. The rules are yours to question.</p><a class="at-button" href={withBase("/lectures/week-01/")}>Start with Week 01 <span aria-hidden="true">↗</span></a><p><a href={withBase("/people/")}>Teaching team</a> · <a href={withBase("/policies/")}>Course policies</a> · <a href={withBase("/assessments/")}>All assessments</a></p></footer>
   </div>
-
-  <h2>Find your next step</h2>
-  <CardGrid columns={3}>
-    <Card title="Lectures" href="/lectures/"><p>The twelve questions that build the course argument.</p><p><small>01 / Read the case</small></p></Card>
-    <Card title="Queue Labs" href="/sessions/"><p>The weekly evidence, decisions and work to bring back.</p><p><small>02 / Test the rule</small></p></Card>
-    <Card title="Assessment" href="/assessments/"><p>Three submissions: an autopsy, a trial and a redesign.</p><p><small>03 / Defend the decision</small></p></Card>
-    <Card title="People" href="/people/"><p>Meet the convenor and tutor responsible for your case file.</p><p><small>04 / Find your teaching team</small></p></Card>
-    <Card title="Policies" href="/policies/"><p>Accessibility, observation, sources, extensions and support.</p><p><small>05 / Read the conditions</small></p></Card>
-  </CardGrid>
-</ContentLayout>
+</PageLayout>
