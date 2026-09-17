@@ -15,8 +15,8 @@ premise, progression or claim goes there first, not straight into content.
   `COURSE-DESIGN.md`. Don't invent a requirement because it would be easy to
   test.
 - When writing `PROCESS.md` or other first-person project evidence, use "I"
-  and "my"; never refer to me as "the student." (This repo's `PROCESS.md` is
-  left as the template for me to write myself — the agent does not write it.)
+  and "my"; never refer to me as "the student." Assisted drafting must
+  distinguish my directions from actions or checks performed by an agent.
 - Never convert a subjective reaction into a factual claim. That discipline
   now has a sharper edge on this repo: see the synthetic-vs-real rule below.
 
@@ -64,10 +64,14 @@ premise, progression or claim goes there first, not straight into content.
   `PageLayout.astro` or plain markdown — never a parallel stylesheet, a new
   font, or a component that duplicates what `Card`, `Callout` or `Hero`
   already do.
-- **`PROCESS.md` stays the template.** The agent does not write the final
-  process account or fabricate commit citations, screenshots or reflections
-  to make `check:evidence` pass early. Leaving that gate red until the actual
-  author writes it is the correct state, not a bug to route around.
+- **Process assistance authorised on 18 September 2026.** At my explicit
+  request, the agent may organise an English PROCESS.md draft using my
+  recorded instructions and verified commit evidence. This supersedes the
+  earlier template-only instruction. Do not invent personal experiences,
+  decisions, prompts, research, screenshots or checks; name agent-performed
+  verification as such. Keep the draft's review status visible until I have
+  reviewed and adopted it. A green evidence check verifies citations, not
+  authorship, reflective quality or permission to submit.
 - **Removing `STARTER_CONTENT` markers and a green `check:evidence` is not
   proof the starter is gone.** Both check for specific, narrow conditions —
   a marker comment absent here, a file hash different there — not that the
