@@ -1,48 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img">
-  <title>A fan of queue lines converging on a single service window, with a row of ticket stubs below, in flat gold and black on cream</title>
-  <defs>
-    <path id="stub" d="M0,20 L11,8 L22,20 L33,8 L44,20 L55,8 L66,20 L77,8 L88,20 L99,8 L110,20 L110,140 L0,140 Z" />
-  </defs>
-
-  <rect x="0" y="0" width="1600" height="700" fill="#f2e9d8" />
-
-  <!-- fan of queue lines converging on the counter window -->
-  <g>
-    <polygon points="1300,230 80,20 80,80" fill="#1c1a17" />
-    <polygon points="1300,230 80,80 80,140" fill="#b97d1c" />
-    <polygon points="1300,230 80,140 80,200" fill="#1c1a17" />
-    <polygon points="1300,230 80,200 80,260" fill="#b97d1c" />
-    <polygon points="1300,230 80,260 80,320" fill="#1c1a17" />
-    <polygon points="1300,230 80,320 80,380" fill="#b97d1c" />
-    <polygon points="1300,230 80,380 80,440" fill="#1c1a17" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="1600" height="640">
+  <title>Queue lines, a service counter and a perforated ticket</title>
+  <rect width="1600" height="640" fill="#000"/>
+  <g fill="none" stroke="#b97d1c" stroke-width="2">
+    <path d="M790 80H950V190H1150V240H1410"/>
+    <path d="M720 145H880V240H1100V280H1410"/>
+    <path d="M780 290H1060V320H1410"/>
+    <path d="M740 420H980V360H1410"/>
+    <path d="M830 530H1050V400H1410"/>
+    <rect x="1410" y="190" width="100" height="260"/>
+    <path d="M1425 460H1525" stroke-width="5"/>
   </g>
-
-  <!-- service window -->
-  <rect x="1240" y="110" width="240" height="240" rx="18" fill="#1c1a17" />
-  <rect x="1265" y="135" width="190" height="190" rx="10" fill="#f2e9d8" />
-  <circle cx="1360" cy="230" r="52" fill="#b97d1c" />
-
-  <!-- counter divider -->
-  <rect x="0" y="470" width="1600" height="14" fill="#1c1a17" />
-
-  <!-- queued ticket stubs -->
-  <g>
-    <use href="#stub" x="60" y="530" fill="#1c1a17" />
-    <use href="#stub" x="200" y="530" fill="#b97d1c" />
-    <use href="#stub" x="340" y="530" fill="#1c1a17" />
-    <use href="#stub" x="480" y="530" fill="#b97d1c" />
-    <use href="#stub" x="620" y="530" fill="#1c1a17" />
-    <use href="#stub" x="760" y="530" fill="#b97d1c" />
-    <use href="#stub" x="900" y="530" fill="#1c1a17" />
-    <use href="#stub" x="1040" y="530" fill="#b97d1c" />
-    <use href="#stub" x="1180" y="530" fill="#1c1a17" />
-    <use href="#stub" x="1320" y="530" fill="#b97d1c" />
-    <use href="#stub" x="1460" y="530" fill="#1c1a17" />
+  <g fill="#b97d1c">
+    <circle cx="790" cy="80" r="6"/><circle cx="720" cy="145" r="6"/>
+    <circle cx="780" cy="290" r="6"/><circle cx="740" cy="420" r="6"/>
+    <circle cx="830" cy="530" r="6"/>
   </g>
-
-  <!-- bureaucratic stamp accent -->
-  <g transform="rotate(-12 1440 600)" opacity="0.55">
-    <circle cx="1440" cy="600" r="46" fill="none" stroke="#1c1a17" stroke-width="5" />
-    <path d="M1418,600 L1434,616 L1464,584" fill="none" stroke="#1c1a17" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <g transform="translate(1135 405) rotate(-8)">
+    <path d="M0 0H205V45C185 45 185 75 205 75V160H0V75C20 75 20 45 0 45Z" fill="#000" stroke="#b97d1c" stroke-width="3"/>
+    <path d="M15 60H190" stroke="#b97d1c" stroke-dasharray="4 5"/>
+    <g stroke="#b97d1c" stroke-width="2">
+      <path d="M25 25H100M25 35H75M25 85H65M25 125H150"/>
+      <path d="M160 85V112M164 85V112M171 85V112M180 85V112M183 85V112"/>
+    </g>
   </g>
 </svg>

@@ -1,10 +1,11 @@
 # Policy Lab Contract
 
-**Status: implemented; visual and interaction review in progress.** The
+**Status: implemented; initial visual and interaction review completed.** The
 approved three-policy, three-scenario simulator is available at
 `/policy-lab/`, with all nine results rendered as static fallback tables.
 Its calculation module and regression tests implement this contract.
-See `COURSE-DESIGN.md` for scope and the cross-week teaching sequence.
+See `COURSE-DESIGN.md` for scope and the cross-week teaching sequence, and
+`VERIFICATION-2026-09-17.md` for the checks performed and their limits.
 
 Priority Lane selects the shortest service time within the declared-priority
 group, then the shortest within the remaining group; arrival time and ticket

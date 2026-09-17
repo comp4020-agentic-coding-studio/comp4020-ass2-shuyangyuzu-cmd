@@ -1,5 +1,5 @@
 ---
-import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
+import ContentLayout from "../../layouts/PageLayout.astro";
 import Callout from "astro-theme-university/components/Callout.astro";
 import { withBase } from "astro-theme-university/url";
 import { siteConfig } from "../../site-config";
@@ -74,14 +74,14 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
 
 <ContentLayout
   title="Policy Lab"
-  description="Run the three week-6 policies against three fixed scenarios and see the individual tickets a mean wait figure hides."
+  description="Same tickets. Three rules. See who waits longer when the policy changes."
   {...siteConfig}
 >
   <section aria-labelledby="policy-lab-live-heading">
-    <h2 id="policy-lab-live-heading">Try it</h2>
+    <h2 id="policy-lab-live-heading">Choose the next rule</h2>
     <p>
-      Pick a scenario and a policy — the numbers come straight from the
-      site's own verified simulator.
+      Choose a synthetic case and compare the cost of each rule. Times are
+      in minutes. Every ticket is served; nobody leaves these fixed queues.
     </p>
 
     <form id="policy-lab-form" class="policy-lab-controls">
@@ -118,30 +118,20 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
 
     <p id="policy-lab-status" role="status" aria-live="polite" class="policy-lab-status"></p>
 
-    <h3 id="policy-lab-selection-heading">{DEFAULT_SCENARIO} — {POLICY_LABELS[DEFAULT_POLICY]}</h3>
-
-    <p class="policy-lab-scroll-hint">Scroll the table horizontally to see every column.</p>
-    <div class="at-table-wrap">
-      <table id="policy-lab-summary-table">
-        <thead>
-          <tr>
-            <th scope="col">Mean wait</th>
-            <th scope="col">Median wait</th>
-            <th scope="col">Max wait</th>
-            <th scope="col">Wait &gt; 5 min</th>
-            <th scope="col">Overtaking total</th>
-          </tr>
-        </thead>
-        <tbody id="policy-lab-summary-body">
-          <tr>
-            <td>{fmt(defaultResult.summary.meanWait)}</td>
-            <td>{defaultResult.summary.medianWait}</td>
-            <td>{defaultResult.summary.maxWait}</td>
-            <td>{defaultResult.summary.waitOverFiveCount}</td>
-            <td>{defaultResult.summary.overtakingTotal}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="policy-result">
+      <h3 id="policy-lab-selection-heading">{DEFAULT_SCENARIO} — {POLICY_LABELS[DEFAULT_POLICY]}</h3>
+      <dl class="policy-metrics" id="policy-lab-metrics">
+        <div><dt>Mean wait</dt><dd><span data-metric="meanWait">{fmt(defaultResult.summary.meanWait)}</span> <small>min</small></dd></div>
+        <div><dt>Median wait</dt><dd><span data-metric="medianWait">{defaultResult.summary.medianWait}</span> <small>min</small></dd></div>
+        <div><dt>Longest wait</dt><dd><span data-metric="maxWait">{defaultResult.summary.maxWait}</span> <small>min</small></dd></div>
+        <div><dt>Tickets waiting &gt; 5 min</dt><dd data-metric="waitOverFiveCount">{defaultResult.summary.waitOverFiveCount}</dd></div>
+        <div><dt>Overtaking events</dt><dd data-metric="overtakingTotal">{defaultResult.summary.overtakingTotal}</dd></div>
+      </dl>
+      <p class="office-label">Service order / first to last</p>
+      <ol id="policy-lab-sequence" class="policy-sequence" aria-label="Tickets in service order">
+        {defaultTickets.map((ticket) => <li>{ticket.id}</li>)}
+      </ol>
+      <p class="policy-sequence-note">Overtaking counts each later-arriving ticket served ahead of an earlier one. It is not a count of unique people.</p>
     </div>
 
     <details id="policy-lab-compare" class="at-callout at-callout--details">
@@ -241,9 +231,9 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
     <p>
       On the Normal Day log, mean wait was {fmt(ndFcfs.meanWait)} minutes under
       FCFS and {fmt(ndPriority.meanWait)} minutes under the Priority Lane —
-      almost the same figure — while the Priority Lane moved {ndPriority.overtakingTotal} tickets
-      ahead of others that had already arrived, and FCFS moved none, by
-      construction. A mean that barely changes can still describe two very
+      the same rounded figure — while the Priority Lane produced {ndPriority.overtakingTotal} overtaking
+      events, and FCFS produced none, by construction. One later ticket can
+      overtake several earlier tickets. An unchanged mean can describe two very
       different queues.
     </p>
     <p>
@@ -279,8 +269,8 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
         that almost everyone joins still a lane?
       </li>
       <li>
-        System Shock's closed window holds the desk idle from minute 6 to
-        minute 10 regardless of policy. Expand all three System Shock tables
+        System Shock blocks new service starts from minute 6 to minute 10;
+        a ticket already in service still finishes. Expand all three System Shock tables
         below. Relative to <a href={withBase("/sessions/week-11/")}>week 11</a>'s worst-day
         case, would you expect the same ordering of outcomes to hold if the
         closed window were longer, or is that exactly the kind of
@@ -301,10 +291,8 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
   <section aria-labelledby="policy-lab-static-heading">
     <h2 id="policy-lab-static-heading">Browse every result without JavaScript</h2>
     <p>
-      All nine scenario &times; policy combinations below are computed and
-      rendered at build time. Expanding any table needs no script; this
-      section is the same information the picker above shows, laid out so it
-      never depends on JavaScript being available.
+      All nine scenario &times; policy combinations are available below.
+      These tables remain available when the interactive picker cannot run.
     </p>
 
     {
@@ -410,11 +398,13 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
   <script type="application/json" id="policy-lab-data" set:html={clientData} is:inline />
 
   <script>
+    function initPolicyLab() {
     const dataEl = document.getElementById("policy-lab-data");
     const form = document.getElementById("policy-lab-form");
     const statusEl = document.getElementById("policy-lab-status");
     const headingEl = document.getElementById("policy-lab-selection-heading");
-    const summaryBody = document.getElementById("policy-lab-summary-body");
+    const metrics = document.getElementById("policy-lab-metrics");
+    const sequence = document.getElementById("policy-lab-sequence");
     const ticketBody = document.getElementById("policy-lab-ticket-body");
     const compareDetails = document.getElementById("policy-lab-compare");
     const compareBody = document.getElementById("policy-lab-compare-body");
@@ -424,7 +414,8 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
       form instanceof HTMLFormElement &&
       statusEl &&
       headingEl &&
-      summaryBody &&
+      metrics &&
+      sequence &&
       ticketBody &&
       compareDetails &&
       compareBody
@@ -461,18 +452,19 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
 
         headingEl.textContent = `${scenario} — ${POLICY_LABELS[policy]}`;
 
-        summaryBody.replaceChildren();
-        const summaryRow = document.createElement("tr");
-        [fmt(summary.meanWait), summary.medianWait, summary.maxWait, summary.waitOverFiveCount, summary.overtakingTotal].forEach(
-          (value) => summaryRow.append(cell(value)),
-        );
-        summaryBody.append(summaryRow);
+        metrics.querySelectorAll<HTMLElement>("[data-metric]").forEach((metric) => {
+          metric.textContent = fmt(summary[metric.dataset.metric!]);
+        });
 
         ticketBody.replaceChildren();
         const tickets = [...result.tickets].sort(
           (a: { serviceOrder: number }, b: { serviceOrder: number }) => a.serviceOrder - b.serviceOrder,
         );
+        sequence.replaceChildren();
         for (const ticket of tickets) {
+          const stub = document.createElement("li");
+          stub.textContent = ticket.id;
+          sequence.append(stub);
           const row = document.createElement("tr");
           [
             ticket.id,
@@ -507,6 +499,9 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
         }
       };
 
+      // Astro navigation can revisit the page without running this module again.
+      if (form.dataset.ready) { render(false); return; }
+      form.dataset.ready = "true";
       form.addEventListener("change", (event) => {
         const target = event.target;
         if (target instanceof HTMLInputElement && (target.name === "scenario" || target.name === "policy")) {
@@ -529,70 +524,9 @@ const ssPriority = allResults["System Shock"].PRIORITY_LANE.summary;
       // changes.
       render(false);
     }
+    }
+    initPolicyLab();
+    document.addEventListener("astro:page-load", initPolicyLab);
+    window.addEventListener("pageshow", initPolicyLab);
   </script>
-
-  <style>
-    .policy-lab-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--at-spacing-lg);
-      align-items: flex-start;
-    }
-
-    .policy-lab-controls fieldset {
-      flex: 1 1 220px;
-      min-width: 0;
-    }
-
-    .policy-lab-choice {
-      display: flex;
-      align-items: center;
-      gap: var(--at-spacing-sm);
-      font-weight: 400;
-      margin-block-end: var(--at-spacing-xs);
-    }
-
-    .policy-lab-actions {
-      flex: 1 1 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .policy-lab-status {
-      min-height: 1.5em;
-      font-size: var(--at-font-size-sm);
-      color: var(--at-text-muted);
-    }
-
-    .policy-lab-window-note {
-      font-weight: 400;
-      font-size: var(--at-font-size-sm);
-      color: var(--at-text-muted);
-    }
-
-    .policy-lab-scenario-block {
-      margin-block-end: var(--at-spacing-xl);
-    }
-
-    .policy-lab-scroll-hint {
-      font-size: var(--at-font-size-sm);
-      color: var(--at-text-muted);
-      margin-block-end: var(--at-spacing-xs);
-    }
-
-    @media (max-width: 480px) {
-      .policy-lab-controls fieldset {
-        flex: 1 1 140px;
-        min-width: 140px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .policy-lab-controls,
-      .policy-lab-controls * {
-        transition: none !important;
-        animation: none !important;
-      }
-    }
-  </style>
 </ContentLayout>

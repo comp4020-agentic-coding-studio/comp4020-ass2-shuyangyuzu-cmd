@@ -1,8 +1,152 @@
 ---
 import MdxPageLayout from "astro-theme-university/layouts/MdxPageLayout.astro";
+import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
 import { siteConfig } from "../site-config";
+
+// Both authored Astro pages and Markdown share the same visual treatment.
+const isMarkdown = Boolean(Astro.props.frontmatter);
+const Layout = isMarkdown ? MdxPageLayout : ContentLayout;
+const pageHeading = Boolean(Astro.props.frontmatter?.pageHeading);
 ---
 
-<MdxPageLayout siteConfig={siteConfig} {...Astro.props}>
+<Layout title={Astro.props.title ?? Astro.props.frontmatter?.title ?? siteConfig.name} lead={!pageHeading} siteConfig={siteConfig} {...siteConfig} {...Astro.props}>
+  <slot name="head" slot="head" />
+  {pageHeading && <h1>{Astro.props.frontmatter.title}</h1>}
+  {pageHeading && Astro.props.frontmatter.description && <p class="lead">{Astro.props.frontmatter.description}</p>}
   <slot />
-</MdxPageLayout>
+</Layout>
+
+<style is:global>
+  /* Office stationery, layered on the existing SlopU components and tokens. */
+  :root { --at-content-width: 68rem; }
+  .at-main { padding-block: clamp(1.5rem, 4vw, 3.5rem); }
+  .at-main > * { min-width: 0; }
+  .at-main > :is(p, ul, ol, blockquote) { max-width: 74ch; }
+  .at-main h1 { color: var(--at-text); font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.045em; line-height: 1.08; }
+  .at-main h2 { color: var(--at-text); letter-spacing: -.025em; }
+  .at-main > h2 { border-block-start: 1px solid var(--at-divider); padding-block-start: 1.5rem; }
+  .at-main .lead { font-size: clamp(1rem, 1.8vw, 1.2rem); max-width: 65ch; }
+  .at-nav { border-block-end: 1px solid var(--at-divider); }
+  .at-button { border-radius: 0; }
+  .at-button--outline { color: var(--at-link); }
+  .at-main :is(a, button, input, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--at-text); outline-offset: 4px;
+  }
+  .at-card { border-block-start: 3px solid var(--at-primary); background: var(--at-bg-elevated); }
+  .at-card-title { color: var(--at-text); }
+  .at-card-body > p:last-child:has(small) {
+    border-block-start: 1px dashed var(--at-border); padding-block-start: .8rem;
+    font-family: var(--at-font-mono); font-size: .8rem;
+  }
+  .at-callout { border-radius: 0; }
+  .at-table-wrap { max-width: 100%; }
+  table { font-variant-numeric: tabular-nums; font-size: .9rem; }
+  th { font-size: .78rem; }
+  .office-label, .office-file, .office-register {
+    font-family: var(--at-font-mono); font-size: .75rem; letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  .office-label { color: var(--at-text-secondary); margin-block: 0 .75rem; }
+  .office-file { display: inline-block; border: 1px solid var(--at-border); padding: .25rem .5rem; }
+  .office-register {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem;
+    padding-block: .85rem; border-block: 1px solid var(--at-border);
+  }
+  body:has(.course-subtitle) .at-hero {
+    min-height: 0; height: clamp(22rem, 35vw, 30rem); background: var(--at-black);
+  }
+  body:has(.course-subtitle) .at-hero-content { background: linear-gradient(90deg, var(--at-black) 15%, transparent 90%); }
+  body:has(.course-subtitle) .at-hero-title {
+    max-inline-size: 14ch; font-size: clamp(2.65rem, 5.2vw, 5.2rem);
+    line-height: .98; font-weight: 750; letter-spacing: -.055em;
+    text-wrap: balance; text-shadow: none; animation: none;
+  }
+  body:has(.course-subtitle) .at-hero-title::after { border-radius: 0; animation: none; width: 5rem; }
+  body:has(.course-subtitle) .at-hero-image { object-position: center; opacity: .9; }
+  body:has(.course-subtitle) .at-main > .lead { font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 550; color: var(--at-text); margin-block: 0 1.2rem; }
+  body:has(.course-subtitle) .course-subtitle { font-family: var(--at-font-mono); font-size: .85rem; margin-block: .9rem 0; }
+  .office-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 1.4rem 2.2rem; }
+  .office-intro { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); margin-block: 2rem; }
+  .office-intro h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.08; margin-block: .5rem 1rem; }
+  .office-intro p { max-width: 55ch; }
+  .office-ticket {
+    border: 1px solid var(--at-border); border-block-start: 5px solid var(--at-primary);
+    padding: 1.5rem; background: var(--at-bg-alt); align-self: start;
+  }
+  .office-ticket dl { margin: 0; }
+  .office-ticket dl > div { display: flex; gap: 1rem; justify-content: space-between; padding-block: .8rem; border-block-end: 1px dashed var(--at-border); }
+  .office-ticket dt { color: var(--at-text-secondary); font-size: .875rem; }
+  .office-ticket dd { margin: 0; text-align: right; font-family: var(--at-font-mono); font-size: .875rem; }
+  .office-ticket > p:last-child { font-size: .8rem; margin-block: 1rem 0; }
+  .office-stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0; list-style: none; margin-block: 1rem 2.5rem; border-block: 1px solid var(--at-border); }
+  .office-stages li { margin: 0; padding: 1.25rem; border-inline-start: 1px solid var(--at-border); }
+  .office-stages li:first-child { border-inline-start: 0; }
+  .office-stages h3 { color: var(--at-text); margin-block: .6rem; font-size: 1.35rem; }
+  .office-stages p { font-size: .9rem; margin: 0; }
+  .office-stages .office-label { font-size: .7rem; }
+  .office-lab-invite { padding: 1.5rem; border-inline-start: 6px solid var(--at-primary); background: var(--at-bg-alt); margin-block-end: 2rem; }
+  .office-lab-invite h2 { margin-block: 0 .6rem; }
+  .office-lab-invite p { max-width: 65ch; }
+  .office-reading-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-block: 1rem 2rem; }
+  .office-reading-grid h2 { font-size: 1.5rem; }
+  .office-reading-grid p { font-size: 1rem; }
+  .office-week-file { display: block; font-family: var(--at-font-mono); font-size: .75rem; color: var(--at-text-secondary); margin-block-end: .65rem; }
+
+  /* The counter display makes the selected result readable before the ledger. */
+  .policy-lab-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+  .policy-lab-controls fieldset { min-width: 0; margin: 0; border: 1px solid var(--at-border); padding: .85rem; }
+  .policy-lab-controls legend { font-family: var(--at-font-mono); font-size: .75rem; text-transform: uppercase; padding-inline: .4rem; }
+  .policy-lab-choice { display: flex; align-items: center; gap: .65rem; min-height: 2.75rem; padding: .45rem .6rem; font-size: .95rem; cursor: pointer; border: 1px solid transparent; }
+  .policy-lab-choice:has(input:checked) { border-color: var(--at-primary); background: var(--at-accent-soft); font-weight: 650; }
+  .policy-lab-choice input { flex-shrink: 0; accent-color: var(--at-primary); }
+  .policy-lab-choice:hover { background: var(--at-bg-alt); }
+  .policy-lab-actions { grid-column: 1 / -1; }
+  .policy-lab-actions button { min-height: 2.75rem; }
+  .policy-lab-status { font-size: .8rem; color: var(--at-text-secondary); }
+  .policy-lab-status:empty { margin: 0; }
+  .policy-result { margin-block: 1.25rem 1.5rem; border: 1px solid var(--at-border); padding: clamp(1rem, 2vw, 1.5rem); }
+  .policy-result h3 { margin-block: .3rem 1rem; font-size: clamp(1.15rem, 2vw, 1.5rem); color: var(--at-text); }
+  .policy-metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; gap: 1px; background: var(--at-border); border: 1px solid var(--at-border); }
+  .policy-metrics > div { background: var(--at-bg); padding: 1rem .8rem; }
+  .policy-metrics dt { font-size: .75rem; color: var(--at-text-secondary); }
+  .policy-metrics dd { margin: .5rem 0 0; font-family: var(--at-font-mono); font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 650; line-height: 1; }
+  .policy-metrics > div:first-child { background: var(--at-primary); }
+  .policy-metrics > div:first-child :is(dt, dd) { color: var(--at-on-primary); }
+  .policy-metrics dd small { font-size: .7rem; font-weight: 400; }
+  .policy-sequence { display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: .45rem; margin: .5rem 0; }
+  .policy-sequence li { border: 1px solid var(--at-border); border-block-start: 3px solid var(--at-primary); padding: .5rem .65rem; font-family: var(--at-font-mono); font-size: .8rem; margin: 0; background: var(--at-bg-alt); }
+  .policy-result .office-label { margin-block: 1.3rem .5rem; }
+  .policy-sequence-note, .policy-lab-window-note, .policy-lab-scroll-hint { font-size: .8rem; color: var(--at-text-secondary); }
+  .policy-lab-scroll-hint { margin-block: .75rem 0; }
+  .policy-lab-scenario-block { margin-block-end: 2rem; }
+  #policy-lab-compare table td:first-child { font-weight: 600; }
+  #policy-lab-ticket-table td:nth-child(8) { font-weight: 700; background: var(--at-accent-soft); }
+  #policy-lab-live-heading { margin-block: 1rem .5rem; }
+  .at-main:has(#policy-lab-form) > h1 { margin-block-end: .5rem; }
+  .at-main:has(#policy-lab-form) > .lead { margin-block-end: .75rem; }
+  @media (min-width: 700px) {
+    .policy-lab-scroll-hint { display: none; }
+  }
+  @media (max-width: 699px) {
+    .office-intro, .office-reading-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .office-stages { grid-template-columns: 1fr 1fr; }
+    .office-stages li { border-block-end: 1px solid var(--at-border); padding: 1rem .75rem; }
+    .office-stages li:nth-child(odd) { border-inline-start: 0; }
+    body:has(.course-subtitle) .at-hero { height: 21rem; }
+    body:has(.course-subtitle) .at-hero-image { opacity: .4; object-position: 70% center; }
+    .office-register { font-size: .65rem; }
+    .policy-lab-controls { gap: .6rem; }
+    .policy-lab-controls fieldset { padding: .5rem; }
+    .policy-lab-choice { font-size: .8rem; gap: .4rem; padding: .4rem; }
+    .policy-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .policy-metrics > div { padding: .75rem .55rem; }
+    .policy-metrics dt { font-size: .7rem; }
+    .policy-metrics dd { font-size: 1.5rem; }
+    .policy-result { padding: .75rem; }
+  }
+  @media print {
+    .office-intro, .office-reading-grid { display: block; }
+    .office-actions { display: none; }
+    .office-ticket, .policy-result { break-inside: avoid; }
+  }
+</style>

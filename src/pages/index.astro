@@ -1,113 +1,107 @@
 ---
-import Callout from "astro-theme-university/components/Callout.astro";
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
-import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
+import ContentLayout from "../layouts/PageLayout.astro";
+import { withBase } from "astro-theme-university/url";
 import heroImage from "../assets/images/hero-home.svg";
 import { courseMeta } from "../course-config";
-import { sessionLabels, siteConfig } from "../site-config";
+import { siteConfig } from "../site-config";
+
+const stages = [
+  { weeks: "01–03", title: "Measure", question: "What does an average hide?", outcome: "Observe a queue. Account for the people behind the numbers.", href: "/lectures/week-01/" },
+  { weeks: "04–06", title: "Choose", question: "Who gets to go next?", outcome: "Compare three rules. Name who gains and who waits longer.", href: "/lectures/week-04/" },
+  { weeks: "07–09", title: "Communicate", question: "What can you honestly promise?", outcome: "Write the wait sign. Notice the people who leave.", href: "/lectures/week-07/" },
+  { weeks: "10–12", title: "Defend", question: "Can your rule survive its worst day?", outcome: "Audit the priority lane. Redesign the counter and defend the cost.", href: "/lectures/week-10/" },
+];
 ---
 
 <ContentLayout
-  title={`${courseMeta.code}: ${courseMeta.title}`}
-  description="Everybody waits. Not everybody waits equally. Learn who designed the queue, what it measures, and whose time it spends."
+  title={courseMeta.title}
+  description="Everybody waits. Not everybody waits equally."
   heroImage={heroImage}
-  heroImageAlt="A fan of queue lines converging on a single service window, with a row of ticket stubs below, in flat gold and black on cream"
+  heroImageAlt="Gold queue lines enter a single counter on a black field, beside the outline of a perforated ticket."
   {...siteConfig}
 >
+  <div class="office-register" aria-label="Course information">
+    <span>{courseMeta.code} / Office of Everything</span>
+    <span>{courseMeta.session} / {courseMeta.year}</span>
+    <span>12 teaching weeks</span>
+  </div>
   <p class="course-subtitle">Twelve Weeks in the Architecture of Waiting</p>
+  <div class="office-actions">
+    <a class="at-button" href={withBase("/lectures/week-01/")}>Begin with Week 01 <span aria-hidden="true">↗</span></a>
+    <a class="at-button at-button--outline" href={withBase("/policy-lab/")}>Try the Policy Lab <span aria-hidden="true">→</span></a>
+  </div>
 
-  <ul class="course-tags" aria-label="Course tags">
-    {courseMeta.tags.map((tag) => <li>{tag}</li>)}
-  </ul>
+  <section class="office-intro" aria-labelledby="course-premise">
+    <div>
+      <p class="office-label">The institution has a policy for your time.</p>
+      <h2 id="course-premise">A queue is a decision.<br />Someone pays for it.</h2>
+      <p>Waiting is one of the ways a system allocates service, risk, attention and
+        priority. Learn who designed the queue, what it measures, and whose time
+        it spends.</p>
+      <p>Our case is the SlopU Office of Everything: one fictional counter for
+        enrolment changes, printer-credit disputes and everything in between.
+        Each week adds a memo, a ticket log, a complaint or a failure to the same
+        file. By the end, you have to redesign the office — and answer for it.</p>
+    </div>
+    <aside class="office-ticket" aria-label="Course case file">
+      <p class="office-label">Office of Everything / Case file</p>
+      <dl>
+        <div><dt>Reference</dt><dd>{courseMeta.code}</dd></div>
+        <div><dt>Subject</dt><dd>The allocation of waiting</dd></div>
+        <div><dt>Teaching period</dt><dd><time datetime={courseMeta.startDate}>22 Feb</time> – <time datetime={courseMeta.endDate}>28 May {courseMeta.year}</time></dd></div>
+        <div><dt>Final outcome</dt><dd>A defensible redesign</dd></div>
+      </dl>
+      <p>Synthetic case material. The office is fictional. The decisions are yours.</p>
+    </aside>
+  </section>
 
-  <Callout type="info">
-    <p>
-      Waiting is not simply the absence of service. It is one of the ways a
-      system allocates service, risk, attention and priority.
-    </p>
-  </Callout>
+  <h2>Twelve weeks. Four decisions.</h2>
+  <ol class="office-stages">
+    {stages.map((stage) => (
+      <li>
+        <p class="office-label">Weeks {stage.weeks}</p>
+        <h3><a href={withBase(stage.href)}>{stage.title}</a></h3>
+        <p><strong>{stage.question}</strong></p>
+        <p>{stage.outcome}</p>
+      </li>
+    ))}
+  </ol>
 
-  <h2>What you will do</h2>
-  <p>
-    Every week adds one artefact to the same file: the SlopU Office of
-    Everything, a single fictional counter that queues everything the
-    university's central services touch. You measure how it actually behaves,
-    choose and defend an ordering rule for it, decide what it can honestly
-    promise about how long someone will wait, and finish by redesigning it —
-    for normal demand, for congestion, and for the point where it breaks — and
-    defending that redesign under questioning.
-  </p>
+  <section class="office-lab-invite" aria-labelledby="lab-invitation">
+    <p class="office-label">The policy desk / Interactive exercise</p>
+    <h2 id="lab-invitation">Same arrivals. Different rules. Different waits.</h2>
+    <p>First come, first served. Quick enquiries. A priority lane. Apply each
+      rule to the same tickets, then look past the average to see who paid
+      for the improvement.</p>
+    <a class="at-button" href={withBase("/policy-lab/")}>Open the Policy Lab <span aria-hidden="true">→</span></a>
+  </section>
 
-  <h2>Why it is worth taking</h2>
-  <p>
-    Queueing mathematics can explain how delay forms. This course asks what
-    an ordering rule does to the people inside it. When a service decides who
-    goes next, delay becomes policy. Once you can see that decision, you
-    cannot stop seeing it — in call centres, hospital triage, ticket support,
-    exam scheduling, anywhere a line forms.
-  </p>
+  <div class="office-reading-grid">
+    <section aria-labelledby="course-audience">
+      <p class="office-label">Entry requirements</p>
+      <h2 id="course-audience">Bring a question about a queue.</h2>
+      <p>You should be comfortable reading a small dataset. No queueing theory,
+        statistics or systems-design background is assumed. If you have ever
+        wanted to explain exactly what is wrong with a waiting room, call centre
+        or online queue, this is a place to start.</p>
+    </section>
+    <section aria-labelledby="course-outcome">
+      <p class="office-label">On leaving the office</p>
+      <h2 id="course-outcome">Make a change you can defend.</h2>
+      <p>By week 12, you can name what a waiting system measures, identify the
+        rule behind its ordering, explain who it favours, and propose a specific
+        change — including what that change would cost someone else.</p>
+    </section>
+  </div>
 
-  <h2>Who it is for</h2>
-  <p>
-    Anyone comfortable reading a small dataset without being taught what a
-    spreadsheet is. No queueing theory, statistics or systems-design
-    background is assumed — the course builds its vocabulary from one running
-    case, not a survey of the literature. It particularly suits anyone who has
-    ever been annoyed by a badly designed waiting room, call centre or online
-    queue and wanted the words to say exactly what was wrong with it.
-  </p>
-
-  <h2>By week 12</h2>
-  <p>
-    You can take an unfamiliar waiting system, name what it is actually
-    measuring, identify the policy choice behind its ordering rule, say who
-    that choice favours, and propose a specific change to it — including what
-    the change would cost someone else.
-  </p>
-
-  <h2>Where to go next</h2>
+  <h2>Find your next step</h2>
   <CardGrid columns={3}>
-    <Card title="Lectures" href="/lectures/">
-      <p>What is covered, week by week, and which topics each lecture draws on.</p>
-    </Card>
-    <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly exercise against the Office of Everything's own records.</p>
-    </Card>
-    <Card title="Assessment" href="/assessments/">
-      <p>What is marked, what it is worth, and when it is due.</p>
-    </Card>
-    <Card title="People" href="/people/">
-      <p>Who teaches the course and how to reach them.</p>
-    </Card>
-    <Card title="Policies" href="/policies/">
-      <p>Rules for late work, extensions, sources and submitted prototypes.</p>
-    </Card>
+    <Card title="Lectures" href="/lectures/"><p>The twelve questions that build the course argument.</p><p><small>01 / Read the case</small></p></Card>
+    <Card title="Queue Labs" href="/sessions/"><p>The weekly evidence, decisions and work to bring back.</p><p><small>02 / Test the rule</small></p></Card>
+    <Card title="Assessment" href="/assessments/"><p>Three submissions: an autopsy, a trial and a redesign.</p><p><small>03 / Defend the decision</small></p></Card>
+    <Card title="People" href="/people/"><p>Meet the convenor and tutor responsible for your case file.</p><p><small>04 / Find your teaching team</small></p></Card>
+    <Card title="Policies" href="/policies/"><p>Accessibility, observation, sources, extensions and support.</p><p><small>05 / Read the conditions</small></p></Card>
   </CardGrid>
 </ContentLayout>
-
-<style>
-  .course-subtitle {
-    margin-block: 0 1rem;
-    color: var(--at-text-secondary);
-    font-size: 1.125rem;
-    font-style: italic;
-  }
-
-  .course-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-block: 0 2rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .course-tags li {
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    color: var(--at-text-secondary);
-    background: var(--at-bg-alt);
-    font-size: 0.9rem;
-  }
-</style>
