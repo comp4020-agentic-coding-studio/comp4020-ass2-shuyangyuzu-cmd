@@ -1,8 +1,8 @@
 ---
 title: Account for the 15% who left
 description:
-  Work out what the Office's uncounted reneged tickets imply about its
-  true average wait, and check your own system for the same blind spot.
+  Test what unrecorded departures leave unknown about waiting, and check
+  your own system for the same measurement gap.
 week: 9
 date: 2027-04-19
 teachers:
@@ -10,9 +10,9 @@ teachers:
 spec:
   - you have stated, in writing, why a 4-minute average computed from
     served tickets only is not automatically the true average wait
-  - you have made a reasoned estimate of what the true average might be,
-    given that 15% of issued tickets were never served, and shown your
-    reasoning
+  - you have calculated the mean elapsed time until service or departure
+    under three explicit assumptions about unrecorded departure times
+  - you have distinguished those assumptions from observed evidence
   - you have checked whether your own observed system could hide reneging
     the same way, and said what evidence would reveal it if so
 ---
@@ -29,18 +29,24 @@ long they had already waited, is not recorded anywhere.
 
 ## In the lab
 
-Write one paragraph explaining why the reported 4-minute average cannot
-simply be trusted as the true average wait, given the 15% gap — be precise
-about the mechanism (people who leave are disproportionately the ones whose
-wait was going badly), not just "the number might be wrong."
+Write one paragraph explaining why the reported 4-minute average describes
+served tickets only. People who left may have waited less, the same amount,
+or longer: this dataset does not establish the direction of the difference.
+Their time until service is unobserved; their time until departure is a
+different outcome that the Office could have recorded.
 
-You cannot know exactly how long the people who left had already waited,
-because the Office never recorded it. Make a reasoned estimate anyway:
-argue for a plausible minimum extra time reneging tickets typically endure
-before leaving, state your assumption explicitly, and show what that
-assumption implies for the true average. The point of this exercise is
-showing your reasoning clearly, not landing on a specific correct number —
-there isn't one available from this data.
+For a sensitivity calculation, assume every issued ticket either reached
+service or left, with no tickets still waiting at the end of the period.
+Define L as the unknown average minutes spent waiting by those who left.
+The mean elapsed time until service or departure would then be:
+
+**0.85 × 4 + 0.15 × L minutes.**
+
+Compute this for L = 2, 4 and 10. These are hypothetical values, not estimates
+supported by the case. Explain why the resulting means can fall below,
+equal or exceed 4, and why none is an estimate of how long everyone would
+have waited if nobody had left. Name the extra timestamp needed to measure
+elapsed time honestly.
 
 Then check your own real system: could someone leave it before being served
 without that departure being recorded anywhere you have access to? If so,

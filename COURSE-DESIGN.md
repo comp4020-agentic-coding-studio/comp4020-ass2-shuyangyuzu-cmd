@@ -90,17 +90,39 @@ without irony markers or promotional language. The comedy of "your call is
 important to us" comes from the premise being followed seriously, not from
 jokes layered on top of it.
 
+## Visual direction: the Office case file
+
+The course website takes its visual language from a university service
+counter: numbered files, perforated ticket edges, ruled records and a
+black-and-gold counter display. SlopU's identity, palette, fonts and theme
+components remain the foundation. Shared treatment lives in
+`src/layouts/PageLayout.astro`; it applies to both MDX and Astro pages.
+
+The homepage makes the course claim and four-stage progression visible
+before the longer explanation. A prospective student can enter the first
+lecture or try the Policy Lab directly. Weekly listings retain their real
+dates and gain file numbers; decorative numbers never imply a live queue.
+The Policy Lab gives individual metrics and service order more prominence,
+while retaining the complete tables, fixed scenarios and verified results.
+No policy is presented as a winner. On mobile, controls and key figures
+should be readable without horizontal scrolling; only wide evidence tables
+may scroll. Native inputs, visible keyboard focus and reduced-motion
+support remain part of acceptance. This is a visual treatment, not a claim
+that the Office's fictional records are real research.
+
 ## Scope exclusions
 
 This MVP has approved building an interactive Queue Policy Lab on the
 site, running the three policies (FCFS, Quick Enquiries, Priority Lane)
 against the three fixed scenarios (Normal Day, High-declaration Day,
 System Shock) specified, with computed and cross-checked results, in
-`POLICY-LAB-CONTRACT.md` — but that simulator is not yet implemented. The
-weeks 4–9 activities still describe the exercise and its declared inputs
-without a page a visitor can run today, and make no interactive promise
-the site can't currently keep; the contract's fixed datasets and results
-are checked-in reference material for whoever builds that page next.
+`POLICY-LAB-CONTRACT.md`. The simulator is implemented at `/policy-lab/`,
+with all nine combinations also available as static tables. Week 6 uses
+Normal Day for the policy comparison; week 7 distinguishes a completed log
+from information available on arrival; week 10 uses High-declaration Day
+as a controlled example, not proof about the audit's population; weeks
+11–12 use System Shock for a bounded stress test. The two later assessments
+explain how to use these results as evidence without replacing a defence.
 Stretch beyond the approved three policies and three scenarios —
 randomised arrivals, additional policies, or letting a visitor define
 their own tickets — stays excluded from this pass. The site does not claim
@@ -109,6 +131,12 @@ research, does not cite sources it hasn't verified, and does not present the
 Office of Everything as anything other than fiction. Twelve weeks is the
 whole curriculum for this pass — no thirteenth "extension" week, no optional
 track.
+
+Week 9 measures the evidence gap explicitly: 15% of issued tickets are
+recorded as departed, with no tickets still waiting at the reporting cutoff.
+The served-only mean is not a mean for all arrivals. Sensitivity calculations
+use hypothetical departure times and distinguish elapsed waiting until exit
+from the unobserved time to service. No direction of bias is assumed.
 
 ## Assessment alignment
 

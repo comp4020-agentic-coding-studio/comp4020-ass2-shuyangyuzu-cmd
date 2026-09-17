@@ -9,7 +9,7 @@ weight: 50
 marking:
   mode: holistic
   description: >-
-    The redesign is judged as a whole against the five requirements below,
+    The redesign is judged as a whole against the requirements below,
     not as a checklist scored piece by piece. A strong submission makes
     specific, defensible decisions on each requirement and is honest about
     what those decisions cost; a submission that is thorough on some
@@ -75,6 +75,14 @@ your reason for rejecting it.
 
 A single written specification covering all six points above, organised so
 a reader can find each requirement addressed without hunting for it.
+
+Support the ordering decision with a comparison of the same two rules on
+**Normal Day** and **System Shock** in the
+[Queue Policy Lab](../../policy-lab/), or separately declared and calculated
+equivalent cases if you propose a custom rule. Identify who benefits, who
+waits longer, and what the model does not test. The Lab has no cancellation,
+sign-comprehension or dispenser-failure model; its results cannot verify
+those parts of your redesign.
 
 ## Scope boundaries
 

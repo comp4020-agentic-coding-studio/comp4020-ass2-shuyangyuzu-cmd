@@ -34,9 +34,9 @@ related:
 
 ## Purpose
 
-Weeks 4 through 6 tested first come first served, shortest job first and a
-priority rule against the same Office of Everything ticket log, and asked
-you to choose and defend one. The Policy Trial asks for the same comparison
+Weeks 4 through 6 introduced first come first served, shortest job first
+and a priority rule, then compared them on one declared log in week 6.
+The Policy Trial asks for the same comparison
 done properly: a declared dataset, both policies run against it in full, and
 a written defence that owns the trade-off rather than hiding it.
 
@@ -57,6 +57,14 @@ than under the alternative, not only describe who benefits.
 
 The declared dataset, the computed results for both policies (shown as
 working), and a written defence of your choice, as one document.
+
+You may use **Normal Day** from the [Queue Policy Lab](../../policy-lab/)
+with two policies. Include the declared inputs, service order and individual
+waits, and explain at least one selection decision; a screenshot alone is
+not working. Other declared datasets and policy variants remain permitted,
+but require your own calculations because the Lab only runs its fixed
+inputs and rules. The written defence is your judgment, not a simulator
+recommendation.
 
 ## Scope boundaries
 

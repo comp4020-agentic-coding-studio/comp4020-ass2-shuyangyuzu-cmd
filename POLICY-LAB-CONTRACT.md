@@ -1,16 +1,16 @@
 # Policy Lab Contract
 
-**Status: pending review, not yet implemented.** This contract's three
-policies and three fixed scenarios are approved MVP content — see
-`COURSE-DESIGN.md`'s scope exclusions, which record that approval and link
-back here. What is still pending is review of this document itself, and
-what remains *not yet implemented* is a working, interactive Queue Policy
-Lab simulator on the site: nothing in this document is wired into any page
-or into any spec test, no week page may cite it as if a simulator exists,
-and this contract's checked-in datasets and computed results are reference
-material, not a claim that the site can run them for a visitor. A change to
-whether the course claims a working simulator still goes through
-`COURSE-DESIGN.md` first, not this file.
+**Status: implemented; visual and interaction review in progress.** The
+approved three-policy, three-scenario simulator is available at
+`/policy-lab/`, with all nine results rendered as static fallback tables.
+Its calculation module and regression tests implement this contract.
+See `COURSE-DESIGN.md` for scope and the cross-week teaching sequence.
+
+Priority Lane selects the shortest service time within the declared-priority
+group, then the shortest within the remaining group; arrival time and ticket
+ID resolve ties. A later handover described arrival order inside each group:
+that description was inaccurate. The implementation and reference results
+retain this contract's shortest-first rule.
 
 This document fixes scope, simulation rules, the three input datasets, and
 the nine computed result sets (three policies × three scenarios), each
@@ -20,14 +20,14 @@ cross-checked by two independently written calculation paths — see
 ## MVP scope: three policies, three fixed scenarios
 
 **Policies** (names and orderings carried over from `week-06` session
-content, so any future simulator matches what the course already tells
+content, with precise tie-break rules below matching what the course tells
 students):
 
 1. **FCFS** — first come, first served. Strict arrival order.
 2. **Quick Enquiries** — shortest job first. Ignores any declared-priority
    marking entirely.
 3. **Priority Lane** — self-declared-urgent tickets served first as a
-   group, then shortest-first among the rest.
+   group, shortest-first within that group, then shortest-first among the rest.
 
 **Scenarios** (all newly constructed for this contract, stated as
 constructed, not observed — per the Policy Trial's scope boundary on
@@ -38,12 +38,11 @@ declared datasets):
    is reproducible outside that session's prose description.
 2. **High-declaration Day** — a shorter log where most tickets declare
    priority, built to force the tie-break rule inside the Priority Lane's
-   urgent group and to make gaming of the self-declared flag (week 6's
-   misuse note, week 10's audit) visible in the input data itself.
+   urgent group. The log records declarations, not verified urgency; it
+   cannot establish whether any declaration is dishonest.
 3. **System Shock** — a shorter log combining a closed service window with
-   priority declarations rising under pressure, modelling the week 11
-   worst-day combination (surge + stoppage + disproportionate urgent
-   declarations) at hand-calculable scale.
+   several priority declarations. It isolates a short closure at
+   hand-calculable scale, not the full surge or dispenser fault in week 11.
 
 No scenario has more than 8 tickets. All three are designed to be checked
 by hand.
@@ -138,11 +137,10 @@ over from week 6 itself.
 
 ### High-declaration Day (6 tickets)
 
-Built so that most tickets declare priority, including two gaming
-declarations that arrive close together (forcing the tie-break rule inside
-the Priority Lane's urgent group) and one on a trivially short `other`
-request (the cheapest possible way to game shortest-first inside that
-group).
+Built so that most tickets declare priority, including equal-duration
+requests that exercise the tie-break rule and one short `other` request.
+No field establishes genuine urgency, so the input data cannot identify
+which declarations, if any, constitute gaming.
 
 | ID   | category                 | arrivalMinute | serviceMinutes | declaredPriority |
 |------|---------------------------|--------------:|---------------:|:-----------------:|
@@ -203,7 +201,7 @@ overtaking.
 ## Verification
 
 Two independently written calculation paths, both under `policy-lab/` and
-kept separate from any future on-site simulator:
+kept separate from the on-site simulator:
 
 - **`sim-event-queue.mjs`** — a discrete-event simulation that jumps
   straight from one event (arrival, service completion, closed-window

@@ -26,6 +26,12 @@ week has to be honest about whichever policy the Office is actually running.
 
 ## In the lab
 
+Open **Normal Day** in the [Queue Policy Lab](../../policy-lab/). Separate
+what its completed log reveals from what a counter could know when a new
+ticket arrives. The model knows exact future arrivals and service durations;
+a real sign cannot assume access to those future facts. Do not turn a final
+simulated wait into a promise to a person joining now.
+
 > **Office of Everything file — synthetic case material.** The counter can
 > know, at any moment: how many tickets are currently waiting, which policy
 > is in effect (from week 6), and whether the case currently being served
@@ -46,8 +52,8 @@ it would be dishonest rather than merely optimistic.
 
 ## Afterwards
 
-Keep this sign design; it is part of what the Policy Trial, due this week,
-asks you to include when you defend your chosen policy on a declared
-dataset. Week 8 asks a related but sharper question: not what a queue can
+Keep this sign design for The Honest Queue in week 12. The Policy Trial,
+due this week, assesses your policy comparison and defence, not this sign.
+Week 8 asks a related but sharper question: not what a queue can
 promise while it's moving, but how anyone can tell when it's stopped moving
 altogether.

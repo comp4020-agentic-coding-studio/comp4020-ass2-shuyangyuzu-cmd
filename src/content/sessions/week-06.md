@@ -30,10 +30,19 @@ Bring your week 4 proposed rule and your week 5 starvation findings.
 > minutes), and one request marked urgent at the Priority Lane dispenser (8
 > minutes), all arriving within the first ten minutes of opening.
 
-Compute the wait for every ticket under three policies: FCFS (arrival
-order), Quick Enquiries (shortest first, ignoring the urgent marking), and
-the Priority Lane (urgent ticket served first, then shortest-first among the
-rest). Lay the three sets of results next to each other.
+Open the [Queue Policy Lab](../../policy-lab/) and select **Normal Day**.
+Its ticket IDs, exact arrival times and category labels are additional
+synthetic inputs that make this comparison reproducible; they are not
+observations from a real counter. Copy the eight-ticket input table.
+
+Compute each wait under FCFS (arrival order), Quick Enquiries (shortest
+service first), and Priority Lane (shortest service among declared-priority
+tickets first, then shortest among the rest). Only tickets already arrived
+are eligible; a service already started finishes without interruption.
+Break ties by arrival time, then ticket ID. Wait is start minus arrival;
+service duration is completion minus start. Check your working against the
+Lab's service order and ticket table, then lay the three results side by
+side. Record a helped ticket, a harmed ticket and the mean for each rule.
 
 Choose one policy for the Office of Everything to actually adopt. Write a
 short defence: name the group your choice favours, name the group it

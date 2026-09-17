@@ -30,6 +30,12 @@ conclusion, and your week 11 traced failure point.
 
 ## In the lab
 
+Use the [Queue Policy Lab](../../policy-lab/) to compare the same two rules
+on **Normal Day** and **System Shock**. Bring both summaries and at least one
+ticket-level trade-off into your ordering-policy defence. These results
+support a claim about this model's ordering rules; they do not test sign
+wording, dispenser faults, departures or the full week 11 incident.
+
 Write your redesign as a short, specific document, not a narrative: state
 the ordering policy the counter will run (keep, modify or replace your
 week 6 choice, and say which), the wording rule for what it tells someone

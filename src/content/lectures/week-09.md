@@ -22,9 +22,9 @@ and what leaving them out does to everything measured before.
 - reneging: the specific term for leaving a queue before being served,
   distinct from never joining it at all
 - survivorship bias applied to a queue: if you only measure the wait times
-  of people who stayed, you are measuring the wait times of the people most
-  willing to tolerate waiting — a systematically different group from
-  everyone who arrived
+  of people who stayed, you are conditioning on reaching service; this
+  group may differ from everyone who arrived, but the direction and size
+  of the difference require evidence
 - why cancellation looks like good news in the Office's own records (fewer
   people being served slowly) while being a sign the queue is failing the
   people it lost
@@ -35,8 +35,10 @@ and what leaving them out does to everything measured before.
 
 > **Office of Everything file — synthetic case material.** This semester's
 > reported "average wait: 4 minutes" was computed from served tickets only.
-> The ticket dispenser's own counter, checked separately, shows 15% more
-> numbers issued than the service log shows served.
+> A separate reconciliation finds that 15% of issued tickets left without
+> service. Every issued ticket is accounted for as served or departed; no
+> ticket remains waiting at the end of this reporting period. Departure
+> times were not recorded.
 
 The Queue Lab asks you to work out what that 15% gap implies about the
-Office's true average — and what it would take to measure it honestly.
+served-only average — and what remains unknown without departure times.

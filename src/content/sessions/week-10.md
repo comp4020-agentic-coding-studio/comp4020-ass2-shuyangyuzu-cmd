@@ -89,6 +89,13 @@ running close to as intended.
 
 ## Afterwards
 
+As a controlled contrast, open **High-declaration Day** in the
+[Queue Policy Lab](../../policy-lab/). Compare Quick Enquiries and Priority
+Lane, naming one ticket whose wait changes and one whose wait does not.
+Explain why this fixed synthetic experiment cannot establish what caused
+the audit population's six-minute association. Declared priority is not a
+measurement of genuine urgency.
+
 Name one additional field the Office could release next time — a
 within-category wait-time breakdown, a verified-urgency flag, an arrival
 timestamp — that would let a future audit test one of the limits you named

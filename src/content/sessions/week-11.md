@@ -32,8 +32,16 @@ to reference.
 List the incident's contributing factors separately: the volume surge (an
 external event, not a design choice), the dispenser jam (a recurring failure
 mode identified back in week 8), and the disproportionate rise in declared
-urgency under pressure (a use of the Priority Lane your week 10 audit should
-already have flagged as plausible).
+urgency under pressure (an added fact of this incident, not something the
+week 10 aggregate audit could establish on its own).
+
+For one bounded experiment, select **System Shock** in the
+[Queue Policy Lab](../../policy-lab/). Under FCFS, trace SS02 and SS03 across
+the minute 6–10 closure: service already started finishes, but no new
+service starts during that window. Compare two policies and identify the
+longest wait and the ticket that pays for any improvement. This six-ticket
+scenario isolates a short closure; it does not reproduce the incident's
+tripled demand or forty-minute dispenser jam. Keep those limits explicit.
 
 Argue for one specific decision, from any earlier week, that you would
 change first if you could only change one thing before this happened again.

@@ -11,8 +11,8 @@ related:
   - sessions/week-06
 ---
 
-FCFS ignores arrival order's alternative entirely except order itself; SJF
-orders by size. This lecture introduces a third kind of rule: order by
+FCFS orders by arrival time; SJF orders eligible requests by service
+duration. This lecture introduces a third kind of rule: order by
 declared urgency. The Office of Everything calls its version the Priority
 Lane, and this lecture is about the question a priority rule always raises
 before its mechanics do — who gets to decide something is urgent?
@@ -42,3 +42,7 @@ This week's Queue Lab compares FCFS, the Quick Enquiries draft, and the
 Priority Lane against the same case, then asks you to choose and defend one
 for the Office of Everything — the direct rehearsal for the Policy Trial,
 due at the end of week 7.
+
+Use **Normal Day** in the [Queue Policy Lab](../../policy-lab/) to inspect
+the same tickets under all three rules. An unchanged mean can still hide a
+redistribution of waiting time between people.
