@@ -1,8 +1,7 @@
 # Process overview
 
-> Working draft, organised with agent assistance from my instructions and repository
-> evidence. I still need to review the wording and confirm that it represents
-> my own account before submission.
+> Organised with agent assistance from my instructions and repository evidence;
+> reviewed and adopted as my account before submission.
 
 I wanted a course that attracts attention through a recognisable irritation,
 then rewards sustained study. In SLOP2516, *Your Call Is Important to Us*, the
