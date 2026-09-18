@@ -23,9 +23,10 @@ before its mechanics do — who gets to decide something is urgent?
   service time: it asks a queue to trust a claim rather than measure a fact
 - who declares priority in the Office's design, who verifies the
   declaration, and what happens if nobody checks it
-- the incentive problem: if declaring urgency is free and unverified,
-  declaring urgency becomes the rational move for everyone, and the lane
-  stops meaning anything
+- the incentive problem: if declaring urgency is free and unverified, people
+  seeking earlier service have a reason to claim it. Whether they do depends
+  on their preferences, norms and expectations; the notice alone does not
+  establish that everyone will claim urgency or that the lane has failed
 - priority versus SJF's starvation: a priority rule can starve the same way
   SJF does, but for a different reason — not "always shorter," but "always
   outranked"

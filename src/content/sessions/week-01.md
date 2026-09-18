@@ -23,6 +23,13 @@ weeks, and watch it once, carefully, before you have any theory about it.
 
 ## Before the lab
 
+If in-person observation is not accessible, arrange an approved written
+observation record or log with the convenor under the
+[accessibility policy](../../policies/#accessibility-of-the-course). Use that
+record for the same analysis and identify its source; do not claim you
+personally observed it. This option also applies to weeks 2–3 and the Queue
+Autopsy.
+
 Pick a system you can plausibly observe three times across the next three
 weeks — the same café queue, the same pharmacy counter, the same help desk.
 It needs to be public to watch (see the policies page on observing public

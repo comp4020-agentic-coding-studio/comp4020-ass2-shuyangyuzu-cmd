@@ -29,3 +29,18 @@ survive a change of approach, or of stack.
 A green suite here is backpressure, not a mark: your tutor verifies what you
 deployed against the published spec at the crit, and keeping your own tests
 green is how you arrive with no surprises.
+
+## SLOP2516 checks and their limits
+
+| Check | Course promise protected | What it does not establish |
+| --- | --- | --- |
+| `course-structure.test.ts` | Twelve paired lecture/lab weeks; a linked built deck; three agreed assessment weights totalling 100%; assigned course suffix | Distinct weekly decisions, teaching quality or slide readability |
+| `policy-lab.test.ts` | Nine fixed scenario/policy combinations agree with independent reference calculations; arrival, service, closure and overtaking rules hold | Real-world prediction, interface usability or fairness |
+| `week-10-claim-discipline.test.ts` | Previously rejected overclaims stay absent; aggregate association and category shares remain distinct | The validity of every possible paraphrase or causal argument |
+| `no-leaked-prose.test.ts` | Known developer-facing fragments do not return in built pages | The absence of every possible placeholder or awkward sentence |
+
+These supplement the shipped date-integrity check. The build owns links,
+schemas, the generated API and automated accessibility checks. Human review
+must still trace assessed actions to practice, check the meanings of numbers,
+read non-adjacent weeks and use the site at both marking viewports. More tests
+are not a substitute for those decisions.
