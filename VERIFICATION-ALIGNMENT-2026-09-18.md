@@ -47,3 +47,13 @@ GitHub reports the repository PRIVATE; the Pages API returned 404. No push or
 publication occurred. A replacement loopback preview was started after the old
 one was unavailable: Python PID 7384, tool session 83528, port 4326. No unrelated
 process was stopped.
+
+## Follow-up deck verification
+
+The deck stylesheet now uses the phone viewport as the reading canvas below
+600px, while retaining the landscape Reveal canvas on desktop. The opening
+slide's kicker and question are separate lines so the desktop subtitle cannot
+run past the slide edge. With the local preview at measured 1920 by 1080 and
+390 by 844, the opening slide had no element outside the viewport; the mobile
+slide text was readable and the slide remained keyboard navigable. The preview
+is local only and does not substitute for the required deployed Chrome review.

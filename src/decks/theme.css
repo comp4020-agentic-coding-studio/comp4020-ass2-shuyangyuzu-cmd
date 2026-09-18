@@ -11,3 +11,26 @@
  * slide class you reach for (`_class: quote`), a code-heavy layout, a
  * background. */
 @import url("astro-theme-university/styles/deck.css");
+
+/* Use the phone viewport as the reading canvas instead of shrinking 1280px
+ * slides to 390px. Keep Reveal's overview and desktop presentation unchanged. */
+@media screen and (max-width: 600px) {
+  :root {
+    --r-main-font-size: 1.125rem;
+    --r-heading1-size: 2rem;
+    --r-heading2-size: 1.65rem;
+    --at-slide-padding: 1.5rem;
+  }
+  .reveal:not(.overview) .slides {
+    width: 100% !important;
+    height: 100% !important;
+    inset: 0 !important;
+    transform: none !important;
+  }
+  .reveal:not(.overview) .slides > section {
+    box-sizing: border-box;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+  }
+}

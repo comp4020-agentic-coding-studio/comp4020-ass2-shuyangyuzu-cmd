@@ -190,3 +190,8 @@ The four windows use the full content width, with four/two/one columns across
 wide/medium/mobile screens. They must not inherit the prose list width cap or
 split stage titles inside words. Styles are scoped to the homepage; SlopU
 identity, tokens, collections, generated API and existing course links remain.
+
+The Week 1 deck keeps its original landscape presentation on larger screens,
+but switches to a viewport-sized, scrollable slide below 600px so its text
+remains readable on a phone. The opening kicker and question are deliberately
+separate lines at both sizes.
