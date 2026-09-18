@@ -58,11 +58,14 @@ mobile inspection, clear entry links and unbroken stage titles, rather than
 accepting compilation as visual evidence
 ([`c0cc15f`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-shuyangyuzu-cmd/commit/c0cc15f)).
 
-Verification itself needed boundaries. An earlier agent stopped every Node
-process when cleaning up one preview; the harness now requires ownership
-checks and a specific PID. Codex's subsequent review records actual browser
-checks separately from automated results and untested conditions. My submission
-review must keep that distinction: passing checks supports particular claims,
-not a guarantee of educational quality or readiness to deploy
-([`ead26e3`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-shuyangyuzu-cmd/commit/ead26e3),
-[`fd1a5e9`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-shuyangyuzu-cmd/commit/fd1a5e9)).
+The final review made alignment more concrete. Codex read CMU's guidance
+on objectives, practice and assessment, alongside the *Calling Bullshit*
+syllabus; this was a late review, not the origin of my earlier design.
+The comparison exposed a mistake green tests missed: a 26-minute wait had
+become a 26-minute service in the next week. The revision separates sample
+omission from model intervention and accepts a longest observed wait even
+when no dramatic outlier occurs. The harness now asks whether each assessed
+action was rehearsed and whether quantities retain their meaning. This
+protects the course's commitment to evidence without pretending a keyword
+test can judge teaching quality ([`4842c8e`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-shuyangyuzu-cmd/commit/4842c8e)). Numerical checks and
+agent review support that decision; student learning has not been tested.
