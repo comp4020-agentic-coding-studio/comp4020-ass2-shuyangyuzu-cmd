@@ -46,6 +46,6 @@ mean if you tried to measure it.
 
 ## Afterwards
 
-Keep your notes. Week 2 asks you to start counting; week 3 asks you to
-explain an outlier. All three feed the Queue Autopsy, due at the end of week
+Keep your notes. Week 2 asks you to start counting; week 3 asks how much
+your longest recorded wait changes a summary. All three feed the Queue Autopsy, due at the end of week
 3, which is this same system, written up properly.

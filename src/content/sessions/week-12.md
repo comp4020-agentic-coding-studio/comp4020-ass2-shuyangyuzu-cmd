@@ -19,7 +19,8 @@ spec:
 ---
 
 This is the last Queue Lab, and it has one task: turn twelve weeks of notes
-into a redesign you could actually defend out loud.
+into a redesign you could defend against specific objections. Rehearse with
+optional peer questions or written objections; oral performance is not assessed.
 
 ## Before the lab
 

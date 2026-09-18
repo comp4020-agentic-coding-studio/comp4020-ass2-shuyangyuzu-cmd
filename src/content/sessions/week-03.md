@@ -11,41 +11,55 @@ spec:
   - you have recomputed the week-2 Office of Everything numbers twice, once
     with the 26-minute ticket included and once with it removed, and can
     state the size of the difference
-  - you have identified, from your own observed system, one moment (an
-    outlier or a plausible one) worth treating the same way
+  - you have compared a separate service-time model under its declared
+    26-minute and 2-minute dispute durations, distinguishing this intervention
+    from deleting a recorded wait
+  - you have analysed your longest recorded wait without inventing an outlier
   - you have a short written note distinguishing what you observed about
     that moment from what you are inferring caused it
 ---
 
-This lab has one method and two datasets. Learn the method on the Office of
-Everything's numbers, where the underlying cause is already known, then turn
-it on your own system, where it usually isn't.
+This lab separates changing a summary from changing a queue. Part A
+prepares the Queue Autopsy; Part B introduces later policy comparisons.
 
 ## Before the lab
 
-Bring your week-1 and week-2 notes on your own system. If you haven't yet
-seen anything resembling an unusually long case, bring your best candidate —
-even an ordinary-looking wait that took noticeably longer than the others
-around it.
+Bring your week-1 and week-2 notes, or an approved accessible observation
+record. If there is no conspicuous outlier, bring the longest recorded wait
+and say that it was not unusually different from the others.
 
 ## In the lab
 
-> **Office of Everything file — synthetic case material.** Full log for the
-> printer-credit dispute ticket and the nine tickets behind it: arrivals at
-> minutes 0, 1, 3, 4, 5, 7, 8, 9, 11, 12; the disputed ticket (arrival 0) is
-> served from minute 0 to minute 26; the remaining nine are served back to
-> back afterwards, 2 minutes each.
+### Part A: change the summary
 
-Compute the mean wait for the nine tickets behind the dispute, given they
-could not be served until it finished. Then recompute what their mean wait
-would have been if the disputed ticket had taken its usual 2 minutes instead
-of 26. Write down the difference in minutes — this is the ripple effect, and
-it is larger than the 26-minute ticket's own delay might suggest.
+Reuse the ten waiting durations from week 2. Compute their mean and median,
+then omit the single 26-minute wait and recompute both. Identify the changed
+denominator. This checks the sensitivity of a reported statistic; it does
+not show that removing that person would improve anyone else's experience.
+Keep the full sample as the primary result.
 
-Now do the same exercise on your own system's outlier or near-outlier. You
-will not have arrival-and-service data as clean as the Office's file; say
-plainly where your numbers are a firm observation and where they are your
-best estimate.
+### Part B: change a service duration
+
+> **Office of Everything file — synthetic case material.** A separate log,
+> Monday of week 3, not a reconstruction of week 2. A new dispute and nine
+> later tickets arrive at minutes 0, 1, 3, 4, 5, 7, 8, 9, 11, 12. The
+> dispute starts at minute 0 and finishes at 26; each later service takes
+> 2 minutes. Service is FCFS and non-preemptive. A ticket cannot start
+> before arrival; an idle desk waits for the next arrival.
+
+Compute each later ticket's start and wait, and their mean wait. Then
+recompute with the first service shortened to 2 minutes and every arrival
+and other service unchanged. Compare the mean and the total waiting minutes
+across the nine later tickets. This is a counterfactual within this model,
+not an observed improvement or deletion of one row from a report.
+
+### Apply Part A to your observation
+
+Report your real sample in full, then recompute its mean with one longest
+recorded wait omitted. If several tie, omit one and explain which. With no
+conspicuous outlier, say so: the sensitivity calculation still has value.
+Do not claim the omitted person caused other waits. Part B is not required
+for your real system without enough arrival and service data to support it.
 
 ## Afterwards
 

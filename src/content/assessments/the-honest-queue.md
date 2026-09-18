@@ -73,7 +73,9 @@ your reason for rejecting it.
 
 ## What you submit
 
-A single written specification covering all six points above, organised so
+The defence is written; lab questioning is formative practice, not an
+additional oral assessment. Submit a single written specification covering
+all six points above, organised so
 a reader can find each requirement addressed without hunting for it.
 
 Support the ordering decision with a comparison of the same two rules on

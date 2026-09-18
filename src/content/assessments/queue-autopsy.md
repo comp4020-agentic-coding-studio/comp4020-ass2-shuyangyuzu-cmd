@@ -11,19 +11,21 @@ marking:
   criteria:
     - name: Observation kept separate from assumption
       weight: 40
-    - name: Wait-time analysis, with and without the outlier
+    - name: Wait-time analysis and sensitivity to the longest recorded wait
       weight: 35
     - name: Scope and clarity of the write-up
       weight: 25
 spec:
-  - the system named is real, public, and observed more than once
+  - the system named is real and public, with repeated observations made
+    personally or supplied through the approved accessibility arrangement
   - observation and assumption are kept in visibly separate sections, not
     blended into one narrative
-  - the write-up computes wait times for at least one ordinary case and one
-    unusually slow case, and states what changes when the slow case is
-    removed
-  - no external source is used as a substitute for direct observation of the
-    real system; where a source helps interpret what you saw, it is cited,
+  - the write-up reports the full sample and recomputes its mean with one
+    longest recorded wait omitted, stating when no conspicuous outlier was
+    observed and avoiding causal conclusions from this deletion
+  - no general external source substitutes for the real observation record,
+    whether personally collected or approved for accessibility; interpretation
+    sources are cited,
     and claims about the system itself are kept to what your observation
     actually supports
 related:
@@ -37,7 +39,7 @@ related:
 
 Weeks 1 through 3 gave you a method for looking at a queue honestly: watch
 it before theorising about it, compute more than one summary statistic, and
-work out what a single unusual case does to everyone behind it. The Queue
+check how sensitive a summary is to the longest recorded wait. The Queue
 Autopsy asks you to apply that method properly, in writing, to one real
 waiting system of your choosing — not the Office of Everything.
 
@@ -50,11 +52,19 @@ week 1. The analysis has two distinct jobs, and they must not be merged: an
 to make because the system didn't show you everything). A reader should be
 able to tell, line by line, which section they are reading.
 
-Within the analysis, include a wait-time calculation for at least one
-representative case and at least one unusually slow case from your
-observations, and state explicitly what happens to your summary numbers
-when the slow case is included versus excluded — the same technique
-rehearsed in week 3's Queue Lab.
+Within the analysis, include a wait-time calculation for a representative
+case and your longest recorded wait. Report the full sample mean, then
+recompute it with one longest wait omitted, as in Part A of week 3's lab.
+State both sample sizes. If there is no conspicuous outlier, say so and use
+the longest wait without relabelling it unusual; if several tie, omit one
+and identify it. Honest absence of an outlier is not penalised. This check
+does not establish causes or what removing a customer would change.
+
+An observation record approved under the [accessibility policy](../../policies/)
+may replace personal observation and satisfies the observation requirement.
+Identify its source and what you did not observe yourself. The same marking
+criteria apply; approval does not require inventing first-hand experience.
+General literature alone is not an observation record.
 
 ## What you submit
 
@@ -71,9 +81,9 @@ people is enough; see the policies page for what "observing without
 collecting personal data" means in practice. An outside source may help you
 interpret something you observed, and if you use one, cite it — but it
 cannot prove what happened in the system you watched. A claim about your
-specific system has to come from your own observation; if you don't have
-first-hand evidence for a claim, say so and scope the claim down rather than
-borrowing authority from somewhere else.
+specific system has to come from your own observation or the approved
+observation record. If that evidence cannot support a claim, say so and
+scope the claim down rather than borrowing authority from somewhere else.
 
 ## Relationship to other work
 

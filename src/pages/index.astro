@@ -42,6 +42,7 @@ const assessments = (await getCollection("assessments", ({ data }) => data.publi
           <a class="hall-text-link" href={withBase("/lectures/")}>Explore the twelve weeks <span aria-hidden="true">→</span></a>
         </div>
         <p class="hall-dates"><time datetime={courseMeta.startDate}>{dateLabel(courseMeta.startDate)}</time> – <time datetime={courseMeta.endDate}>{dateLabel(courseMeta.endDate)}</time></p>
+        <p class="hall-footnote">Teaching ends 14 May; feedback and consolidation continue to 28 May. <a href={withBase("/policies/")}>Course calendar</a>.</p>
       </div>
       <figure class="hall-receipt" aria-label="Fictional course service receipt">
         <div class="receipt-top"><span>SlopU / Student services</span><span aria-hidden="true">↘</span></div>

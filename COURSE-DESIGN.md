@@ -5,6 +5,19 @@ before the site was built so later work can be checked against it rather than
 against itself. It is a contract, not a spec sheet: compact enough to hold in
 one read, and the thing to update first if the course's premise changes.
 
+## Alignment review — 18 September 2026
+
+The final review separates two early analytical tasks: deleting a recorded
+wait changes a descriptive statistic; changing a service duration in a declared
+queue model changes later start times. Week 2 and Week 3 use distinct logs,
+not an invented continuity between waiting time and service time. The Queue
+Autopsy assesses the former technique. Its longest observed wait remains a
+valid case when no conspicuous outlier occurs; no student must invent one.
+Approved accessible observation records satisfy the same analytical criteria.
+The final defence is written; oral questions are formative rehearsal only.
+The twelve teaching weeks finish in May, followed by feedback and consolidation
+through the published course end date, with no additional assessed work.
+
 ## Public title and pitch
 
 **SLOP2516 — Your Call Is Important to Us: Twelve Weeks in the Architecture of

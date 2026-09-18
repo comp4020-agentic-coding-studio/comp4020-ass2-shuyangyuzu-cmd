@@ -28,9 +28,10 @@ to defend every choice in it.
   never asked for a working system, only for decisions that could be
   specified precisely enough for someone else to build
 - defending a decision under questioning is different from stating it: this
-  course's final assessment includes being asked "why not the alternative,"
-  and a good defence names the alternative's cost, not just its own choice's
-  benefit
+  lab rehearses "why not the alternative" through optional peer questions
+  or written objections. The assessed defence is written; there is no
+  separately marked oral examination. A good defence names the
+  alternative's cost, not just its own choice's benefit
 - what "honest" has meant across the semester: separating description from
   assumption (week 1), not letting an average hide a story (weeks 2 and 9),
   not promising more certainty than the system has (week 7), and not

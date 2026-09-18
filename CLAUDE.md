@@ -22,6 +22,16 @@ premise, progression or claim goes there first, not straight into content.
 
 ## Course-specific rules
 
+- **Alignment and quantity review (18 September 2026).** Trace each assessed
+  action to a lab rehearsal and a stated capability. Keep waiting duration,
+  service duration, sample deletion and model intervention distinct; do not
+  silently reuse a number as a different quantity or a separate log as the
+  same event. Check prose against numeric examples by hand. A required
+  observation must have an honest no-outlier route and honour approved
+  accessible records. Oral rehearsal must not become an undeclared oral
+  assessment. These semantic checks require reading, not phrase matching.
+  See COURSE-RESEARCH.md for the dated review that informed this rule.
+
 - **One claim, twelve weeks.** Every week's content should visibly serve the
   course claim — waiting allocates service, risk, attention and priority, it
   isn't just absence of service — either by building a tool to see that claim

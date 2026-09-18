@@ -11,7 +11,7 @@ related:
   - sessions/week-02
 ---
 
-A number like "average wait: 4 minutes" is not false. It is also not the
+A number like "average wait: 5 minutes" is not false. It is also not the
 whole system. This lecture is about the gap between a summary statistic and
 the distribution it summarises, and why that gap is where a queue's real
 costs usually hide.
@@ -32,10 +32,10 @@ costs usually hide.
   sorting
 
 > **Office of Everything file — synthetic case material.** A memo from the
-> Office's front counter, mid-semester: "Average wait this month: 4 minutes.
-> Service remains excellent." The same week's ticket log, examined in the
-> Queue Lab, tells a different story about who that average is averaging
-> over.
+> Office's front counter, Tuesday of week 2: "Mean wait for this ten-ticket
+> sample: 5 minutes. Service remains excellent." The Queue Lab checks the
+> calculation and what this sample can establish. It is not a monthly or
+> population estimate; service durations and causes are unrecorded.
 
 This week's Queue Lab gives you that ticket log and asks you to find the
 story the memo left out — then asks you to do the same thing to the real
