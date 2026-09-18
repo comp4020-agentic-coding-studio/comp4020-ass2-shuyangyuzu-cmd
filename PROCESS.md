@@ -1,6 +1,6 @@
 # Process overview
 
-> Working draft, organised with Codex from my instructions and repository
+> Working draft, organised with agent assistance from my instructions and repository
 > evidence. I still need to review the wording and confirm that it represents
 > my own account before submission.
 
@@ -58,7 +58,7 @@ mobile inspection, clear entry links and unbroken stage titles, rather than
 accepting compilation as visual evidence
 ([`c0cc15f`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-shuyangyuzu-cmd/commit/c0cc15f)).
 
-The final review made alignment more concrete. Codex read CMU's guidance
+The final review made alignment more concrete. The agent read CMU's guidance
 on objectives, practice and assessment, alongside the *Calling Bullshit*
 syllabus; this was a late review, not the origin of my earlier design.
 The comparison exposed a mistake green tests missed: a 26-minute wait had
